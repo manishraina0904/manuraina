@@ -16,7 +16,7 @@ function createStars() {
     return;
   }
 
-  const starCount = window.innerWidth < 480 ? 60 : window.innerWidth < 860 ? 100 : 180;
+  const starCount = window.innerWidth < 480 ? 30 : window.innerWidth < 860 ? 50 : 180;
   starsContainer.innerHTML = "";
 
   for (let i = 0; i < starCount; i += 1) {
@@ -47,7 +47,7 @@ function createStars() {
 }
 
 function createComets() {
-  if (!cometsContainer || prefersReducedMotion) {
+  if (!cometsContainer || prefersReducedMotion || window.innerWidth <= 768) {
     return;
   }
 
@@ -113,29 +113,36 @@ function attachTilt(card, index) {
 
   const intensity = card.classList.contains("scene-card") ? 8 : 12;
   const layers = card.querySelectorAll("[data-depth]");
+  let ticking = false;
 
   card.addEventListener("mousemove", (event) => {
-    const rect = card.getBoundingClientRect();
-    const x = event.clientX - rect.left;
-    const y = event.clientY - rect.top;
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-    const offsetX = x - centerX;
-    const offsetY = y - centerY;
-    const rotateX = (offsetY / centerY) * -intensity;
-    const rotateY = (offsetX / centerX) * intensity;
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        const rect = card.getBoundingClientRect();
+        const x = event.clientX - rect.left;
+        const y = event.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const offsetX = x - centerX;
+        const offsetY = y - centerY;
+        const rotateX = (offsetY / centerY) * -intensity;
+        const rotateY = (offsetX / centerX) * intensity;
 
-    card.style.transform = `perspective(1400px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px)`;
-    card.style.setProperty("--pointer-x", `${(x / rect.width) * 100}%`);
-    card.style.setProperty("--pointer-y", `${(y / rect.height) * 100}%`);
-    card.style.setProperty("--glow-opacity", "1");
+        card.style.transform = `perspective(1400px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px)`;
+        card.style.setProperty("--pointer-x", `${(x / rect.width) * 100}%`);
+        card.style.setProperty("--pointer-y", `${(y / rect.height) * 100}%`);
+        card.style.setProperty("--glow-opacity", "1");
 
-    layers.forEach((layer) => {
-      const depth = Number(layer.dataset.depth || 0);
-      layer.style.setProperty("--shift-x", `${(offsetX / centerX) * depth * 0.14}px`);
-      layer.style.setProperty("--shift-y", `${(offsetY / centerY) * depth * -0.14}px`);
-    });
-  });
+        layers.forEach((layer) => {
+          const depth = Number(layer.dataset.depth || 0);
+          layer.style.setProperty("--shift-x", `${(offsetX / centerX) * depth * 0.14}px`);
+          layer.style.setProperty("--shift-y", `${(offsetY / centerY) * depth * -0.14}px`);
+        });
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
 
   card.addEventListener("mouseleave", () => {
     resetTilt(card);
