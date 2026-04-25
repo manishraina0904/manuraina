@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Manish Raina AI/ML developer portfolio with responsive design, 3D animations, skill links, project pages, and timeline sections.">
+  <title>Manish Raina | AI/ML Developer Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Space+Grotesk:wght@300;400;500;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="site-shell">
+    <div class="bg-grid"></div>
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+    <div class="stars" aria-hidden="true"></div>
+    <div class="comets" aria-hidden="true"></div>
+    <div class="nebula nebula-1" aria-hidden="true"></div>
+    <div class="nebula nebula-2" aria-hidden="true"></div>
+    <div class="nebula nebula-3" aria-hidden="true"></div>
+    <div class="milky-way" aria-hidden="true"></div>
+    <div class="galaxy-arm galaxy-arm-1" aria-hidden="true"></div>
+    <div class="galaxy-arm galaxy-arm-2" aria-hidden="true"></div>
+    <div class="planet planet-a" aria-hidden="true">
+      <div class="planet-ring"></div>
+    </div>
+    <div class="planet planet-b" aria-hidden="true">
+      <div class="planet-ring"></div>
+    </div>
+    <div class="planet planet-c" aria-hidden="true">
+      <div class="planet-ring"></div>
+    </div>
+    <div class="stardust stardust-1" aria-hidden="true"></div>
+    <div class="stardust stardust-2" aria-hidden="true"></div>
+
+    <header class="topbar">
+      <a class="brand" href="#home">
+        <span class="brand-mark">MR</span>
+        <span class="brand-copy">
+          <strong>Manish Raina</strong>
+          <small>AI/ML Developer</small>
+        </span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav"
+        aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="nav" id="site-nav">
+        <a href="#about">About</a>
+        <a href="#expertise">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <a class="button button-outline" href="#contact">Connect</a>
+    </header>
+
+    <main>
+      <section class="section hero" id="home">
+        <div class="hero-visual reveal">
+          <div class="hero-stage">
+            <figure class="profile-orb tilt-card" data-depth="24">
+              <div class="profile-glow-ring"></div>
+              <div class="profile-shell profile-shell-clean">
+                <img class="profile-photo" src="assets/manish-profile.jpg" alt="Portrait of Manish Raina">
+              </div>
+              <figcaption class="profile-caption">
+                <strong>Manish Raina</strong>
+                <span>AI/ML Developer</span>
+              </figcaption>
+            </figure>
+
+            <div class="hero-badges">
+              <article class="hero-chip tilt-card" data-depth="10">
+                <img src="assets/education-orbit.svg" alt="" loading="lazy">
+                <div>
+                  <strong>NIT Delhi</strong>
+                  <span>ML Research Intern, 2025</span>
+                </div>
+              </article>
+
+              <article class="hero-chip tilt-card" data-depth="12">
+                <img src="assets/space-signal.svg" alt="" loading="lazy">
+                <div>
+                  <strong>FastAPI + ML</strong>
+                  <span>Secure backend systems and AI tools</span>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-copy reveal">
+          <p class="eyebrow">Python Developer | FastAPI Builder | AI/ML Problem Solver</p>
+          <div class="typing-intro">
+            <span class="typing-prefix">I am a&nbsp;</span>
+            <span class="typing-role" id="typing-role"></span>
+            <span class="typing-cursor">|</span>
+          </div>
+          <h1>
+            Building AI products
+            <span>that feel practical, modern &amp; production-minded.</span>
+          </h1>
+          <p class="lead">
+            I am a technology-driven problem solver who enjoys building machine learning systems, secure backend APIs,
+            and clean interfaces that make intelligent software genuinely useful.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button" href="#projects">View Projects</a>
+            <a class="button button-ghost" href="assets/Manish-Raina-Resume.pdf"
+              download="Manish-Raina-Resume.pdf">Download Resume</a>
+            <a class="button button-ghost" href="#contact">Contact Me</a>
+          </div>
+
+          <div class="quick-contact">
+            <a href="mailto:manishraina2009@gmail.com">manishraina2009@gmail.com</a>
+            <a href="https://github.com/manishraina0904" target="_blank" rel="noreferrer">GitHub</a>
+            <a href="https://linkedin.com/in/manish-raina-53278028b/" target="_blank" rel="noreferrer">LinkedIn</a>
+          </div>
+
+          <div class="stat-row">
+            <article class="stat-card tilt-card reveal">
+              <strong class="counter" data-target="5" data-suffix="+">0</strong>
+              <span>Major portfolio projects</span>
+            </article>
+            <article class="stat-card tilt-card reveal">
+              <strong class="counter" data-target="14" data-suffix="+">0</strong>
+              <span>Core tech skills showcased</span>
+            </article>
+            <article class="stat-card tilt-card reveal">
+              <strong class="counter" data-target="2" data-suffix="">0</strong>
+              <span>Research and internship experiences</span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="about">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Profile</p>
+          <h2>About</h2>
+        </div>
+
+        <div class="about-grid">
+          <article class="info-panel tilt-card reveal">
+            <p>
+              My work sits at the intersection of machine learning, backend engineering, and usable digital products.
+              I enjoy taking ideas from model logic to APIs, dashboards, and complete experiences that can actually be
+              used.
+            </p>
+          </article>
+
+          <article class="mission-card tilt-card reveal">
+            <span class="chip">What Drives Me</span>
+            <h3>Systems that learn, improve, and stay useful outside of notebooks.</h3>
+            <p>
+              I care about clean architecture, meaningful evaluation, secure workflows, and AI solutions that can grow
+              into real products.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="expertise">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Skills</p>
+          <h2>Skills</h2>
+        </div>
+
+        <div class="skills-marquee reveal">
+          <div class="skills-track">
+            <!-- Group 1 -->
+            <div class="skills-group">
+              <a class="skill-card" href="https://devdocs.io/c/" target="_blank" rel="noreferrer">
+                <img src="assets/skill-c.svg" alt="C skill icon" loading="lazy">
+                <span class="skill-name">C</span>
+              </a>
+              <a class="skill-card" href="https://devdocs.io/cpp/" target="_blank" rel="noreferrer">
+                <img src="assets/skill-cpp.svg" alt="C++ skill icon" loading="lazy">
+                <span class="skill-name">C++</span>
+              </a>
+              <a class="skill-card" href="https://www.python.org/doc/" target="_blank" rel="noreferrer">
+                <img src="assets/skill-python.svg" alt="Python skill icon" loading="lazy">
+                <span class="skill-name">Python</span>
+              </a>
+              <a class="skill-card" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank"
+                rel="noreferrer">
+                <img src="assets/skill-javascript.svg" alt="JavaScript skill icon" loading="lazy">
+                <span class="skill-name">JavaScript</span>
+              </a>
+              <a class="skill-card" href="https://dev.mysql.com/doc/" target="_blank" rel="noreferrer">
+                <img src="assets/skill-sql.svg" alt="SQL skill icon" loading="lazy">
+                <span class="skill-name">SQL</span>
+              </a>
+              <a class="skill-card" href="https://react.dev/" target="_blank" rel="noreferrer">
+                <img src="assets/skill-react.svg" alt="React skill icon" loading="lazy">
+                <span class="skill-name">React.js</span>
+              </a>
+              <a class="skill-card" href="https://fastapi.tiangolo.com/" target="_blank" rel="noreferrer">
+                <img src="assets/skill-fastapi.svg" alt="FastAPI skill icon" loading="lazy">
+                <span class="skill-name">FastAPI</span>
+              </a>
+              <a class="skill-card" href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank"
+                rel="noreferrer">
+                <img src="assets/skill-html-css.svg" alt="HTML CSS skill icon" loading="lazy">
+                <span class="skill-name">HTML/CSS</span>
+              </a>
+              <a class="skill-card" href="https://scikit-learn.org/stable" target="_blank" rel="noreferrer">
+                <img src="assets/skill-scikit.svg" alt="Scikit-Learn skill icon" loading="lazy">
+                <span class="skill-name">Scikit-Learn</span>
+              </a>
+              <a class="skill-card" href="https://www.tensorflow.org/" target="_blank" rel="noreferrer">
+                <img src="assets/skill-tensorflow.svg" alt="TensorFlow skill icon" loading="lazy">
+                <span class="skill-name">TensorFlow</span>
+              </a>
+              <a class="skill-card" href="https://www.nltk.org/" target="_blank" rel="noreferrer">
+                <img src="assets/skill-nlp.svg" alt="NLP skill icon" loading="lazy">
+                <span class="skill-name">NLP</span>
+              </a>
+              <a class="skill-card" href="https://www.postgresql.org/docs/current/index.html" target="_blank"
+                rel="noreferrer">
+                <img src="assets/skill-postgresql.svg" alt="PostgreSQL skill icon" loading="lazy">
+                <span class="skill-name">PostgreSQL</span>
+              </a>
+              <a class="skill-card" href="https://git-scm.com/doc" target="_blank" rel="noreferrer">
+                <img src="assets/skill-git.svg" alt="Git skill icon" loading="lazy">
+                <span class="skill-name">Git</span>
+              </a>
+              <a class="skill-card" href="https://learn.microsoft.com/en-us/power-bi/" target="_blank" rel="noreferrer">
+                <img src="assets/skill-powerbi.svg" alt="Power BI skill icon" loading="lazy">
+                <span class="skill-name">Power BI</span>
+              </a>
+            </div>
+
+            <!-- Group 2 (Duplicate for seamless loop) -->
+            <div class="skills-group" aria-hidden="true">
+              <a class="skill-card" href="https://devdocs.io/c/" target="_blank" rel="noreferrer">
+                <img src="assets/skill-c.svg" alt="C skill icon" loading="lazy">
+                <span class="skill-name">C</span>
+              </a>
+              <a class="skill-card" href="https://devdocs.io/cpp/" target="_blank" rel="noreferrer">
+                <img src="assets/skill-cpp.svg" alt="C++ skill icon" loading="lazy">
+                <span class="skill-name">C++</span>
+              </a>
+              <a class="skill-card" href="https://www.python.org/doc/" target="_blank" rel="noreferrer">
+                <img src="assets/skill-python.svg" alt="Python skill icon" loading="lazy">
+                <span class="skill-name">Python</span>
+              </a>
+              <a class="skill-card" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank"
+                rel="noreferrer">
+                <img src="assets/skill-javascript.svg" alt="JavaScript skill icon" loading="lazy">
+                <span class="skill-name">JavaScript</span>
+              </a>
+              <a class="skill-card" href="https://dev.mysql.com/doc/" target="_blank" rel="noreferrer">
+                <img src="assets/skill-sql.svg" alt="SQL skill icon" loading="lazy">
+                <span class="skill-name">SQL</span>
+              </a>
+              <a class="skill-card" href="https://react.dev/" target="_blank" rel="noreferrer">
+                <img src="assets/skill-react.svg" alt="React skill icon" loading="lazy">
+                <span class="skill-name">React.js</span>
+              </a>
+              <a class="skill-card" href="https://fastapi.tiangolo.com/" target="_blank" rel="noreferrer">
+                <img src="assets/skill-fastapi.svg" alt="FastAPI skill icon" loading="lazy">
+                <span class="skill-name">FastAPI</span>
+              </a>
+              <a class="skill-card" href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank"
+                rel="noreferrer">
+                <img src="assets/skill-html-css.svg" alt="HTML CSS skill icon" loading="lazy">
+                <span class="skill-name">HTML/CSS</span>
+              </a>
+              <a class="skill-card" href="https://scikit-learn.org/stable" target="_blank" rel="noreferrer">
+                <img src="assets/skill-scikit.svg" alt="Scikit-Learn skill icon" loading="lazy">
+                <span class="skill-name">Scikit-Learn</span>
+              </a>
+              <a class="skill-card" href="https://www.tensorflow.org/" target="_blank" rel="noreferrer">
+                <img src="assets/skill-tensorflow.svg" alt="TensorFlow skill icon" loading="lazy">
+                <span class="skill-name">TensorFlow</span>
+              </a>
+              <a class="skill-card" href="https://www.nltk.org/" target="_blank" rel="noreferrer">
+                <img src="assets/skill-nlp.svg" alt="NLP skill icon" loading="lazy">
+                <span class="skill-name">NLP</span>
+              </a>
+              <a class="skill-card" href="https://www.postgresql.org/docs/current/index.html" target="_blank"
+                rel="noreferrer">
+                <img src="assets/skill-postgresql.svg" alt="PostgreSQL skill icon" loading="lazy">
+                <span class="skill-name">PostgreSQL</span>
+              </a>
+              <a class="skill-card" href="https://git-scm.com/doc" target="_blank" rel="noreferrer">
+                <img src="assets/skill-git.svg" alt="Git skill icon" loading="lazy">
+                <span class="skill-name">Git</span>
+              </a>
+              <a class="skill-card" href="https://learn.microsoft.com/en-us/power-bi/" target="_blank" rel="noreferrer">
+                <img src="assets/skill-powerbi.svg" alt="Power BI skill icon" loading="lazy">
+                <span class="skill-name">Power BI</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="projects">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Projects</p>
+          <h2>Projects</h2>
+        </div>
+
+        <div class="project-stack">
+          <a class="project-card project-link tilt-card reveal" href="projects/heart-disease-survival-prediction.html">
+            <div class="project-thumb thumb-heart">
+              <img src="assets/project-heart.png" alt="" loading="lazy">
+            </div>
+            <div class="project-meta">
+              <span class="chip">Learning Engineer</span>
+              <span class="project-year">Healthcare ML</span>
+            </div>
+            <h3>Heart Disease Survival Prediction</h3>
+            <p>Survival-risk forecasting with LightGBM, IPCW, calibration, and AUC-based evaluation.</p>
+            <div class="project-highlights">
+              <span>LightGBM</span>
+              <span>IPCW</span>
+              <span>Scikit-Learn</span>
+            </div>
+            <footer class="project-cta">
+              <strong>View details</strong>
+              <span class="project-arrow">-></span>
+            </footer>
+          </a>
+
+          <a class="project-card project-link tilt-card reveal"
+            href="projects/ai-career-skill-intelligence-platform.html">
+            <div class="project-thumb thumb-career">
+              <img src="assets/project-career.png" alt="" loading="lazy">
+            </div>
+            <div class="project-meta">
+              <span class="chip">AI Engineer</span>
+              <span class="project-year">Full-Stack AI</span>
+            </div>
+            <h3>AI Career Skill Intelligence</h3>
+            <p>FastAPI, React, PostgreSQL, scraping, ranking, and trend-analysis dashboard platform.</p>
+            <div class="project-highlights">
+              <span>FastAPI</span>
+              <span>React</span>
+              <span>PostgreSQL</span>
+            </div>
+            <footer class="project-cta">
+              <strong>View details</strong>
+              <span class="project-arrow">-></span>
+            </footer>
+          </a>
+
+          <a class="project-card project-link tilt-card reveal"
+            href="projects/authentication-access-control-system.html">
+            <div class="project-thumb thumb-auth">
+              <img src="assets/project-auth.png" alt="" loading="lazy">
+            </div>
+            <div class="project-meta">
+              <span class="chip">Backend Developer</span>
+              <span class="project-year">Security API</span>
+            </div>
+            <h3>Authentication and Access Control</h3>
+            <p>FastAPI backend with JWT, refresh tokens, RBAC, hashing, and protected routes.</p>
+            <div class="project-highlights">
+              <span>JWT</span>
+              <span>RBAC</span>
+              <span>FastAPI</span>
+            </div>
+            <footer class="project-cta">
+              <strong>View details</strong>
+              <span class="project-arrow">-></span>
+            </footer>
+          </a>
+
+          <a class="project-card project-link tilt-card reveal" href="projects/ai-voice-receptionist.html">
+            <div class="project-thumb thumb-voice">
+              <img src="assets/project-voice.png" alt="" loading="lazy">
+            </div>
+            <div class="project-meta">
+              <span class="chip">AI Developer</span>
+              <span class="project-year">Speech AI</span>
+            </div>
+            <h3>AI Voice Receptionist</h3>
+            <p>Speech-to-speech assistant with recognition, NLP, text-to-speech, and response flow.</p>
+            <div class="project-highlights">
+              <span>Speech</span>
+              <span>NLP</span>
+              <span>Python</span>
+            </div>
+            <footer class="project-cta">
+              <strong>View details</strong>
+              <span class="project-arrow">-></span>
+            </footer>
+          </a>
+
+          <a class="project-card project-link tilt-card reveal"
+            href="projects/sentiment-aware-recommendation-system.html">
+            <div class="project-thumb thumb-sentiment">
+              <img src="assets/project-sentiment.png" alt="" loading="lazy">
+            </div>
+            <div class="project-meta">
+              <span class="chip">AI Developer</span>
+              <span class="project-year">NLP</span>
+            </div>
+            <h3>Sentiment-Aware Recommendation System</h3>
+            <p>NLP recommendation system using sentiment analysis, VADER, TF-IDF, and better personalization logic.</p>
+            <div class="project-highlights">
+              <span>VADER</span>
+              <span>TF-IDF</span>
+              <span>NLP</span>
+            </div>
+            <footer class="project-cta">
+              <strong>View details</strong>
+              <span class="project-arrow">-></span>
+            </footer>
+          </a>
+        </div>
+      </section>
+
+      <section class="section" id="education">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Education</p>
+          <h2>Education</h2>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-item reveal">
+            <span class="timeline-year">2022 - 2026</span>
+            <div class="timeline-content tilt-card">
+              <h3>Panipat Institute of Engineering and Technology</h3>
+              <p class="timeline-org">B.Tech in Artificial Intelligence and Machine Learning</p>
+              <p>Focused on ML systems, backend engineering, software development, and project execution.</p>
+            </div>
+          </article>
+
+          <article class="timeline-item reveal">
+            <span class="timeline-year">2018 - 2022</span>
+            <div class="timeline-content tilt-card">
+              <h3>Kotwal National Institute of Teaching School</h3>
+              <p class="timeline-org">School Education</p>
+              <p>Built the early foundation for analytical thinking, programming interest, and structured problem
+                solving.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="achievements">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Achievements</p>
+          <h2>Achievements</h2>
+        </div>
+
+        <div class="timeline achievement-timeline">
+          <article class="timeline-item reveal">
+            <span class="timeline-year">2025</span>
+            <div class="timeline-content tilt-card">
+              <h3>Machine Learning Research Intern</h3>
+              <p class="timeline-org">NIT Delhi</p>
+              <p>Research exposure focused on machine learning thinking and applied experimentation.</p>
+            </div>
+          </article>
+
+          <article class="timeline-item reveal">
+            <span class="timeline-year">2024</span>
+            <div class="timeline-content tilt-card">
+              <h3>Hackathon Participant</h3>
+              <p class="timeline-org">HackOps, Savisjar</p>
+              <p>Competitive build experience under time pressure and team-driven execution.</p>
+            </div>
+          </article>
+
+          <article class="timeline-item reveal">
+            <span class="timeline-year">Internship</span>
+            <div class="timeline-content tilt-card">
+              <h3>Machine Learning with Python Internship</h3>
+              <p class="timeline-org">EISystems Technologies</p>
+              <p>Hands-on work with Python-based machine learning fundamentals and practical workflows.</p>
+            </div>
+          </article>
+
+          <article class="timeline-item reveal">
+            <span class="timeline-year">Diploma</span>
+            <div class="timeline-content tilt-card">
+              <h3>Advanced Diploma in Software Technology</h3>
+              <p class="timeline-org">Supertech (India) Computer Education</p>
+              <p>Completed a 12-month program strengthening software and technical fundamentals.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="contact">
+        <div class="contact-card tilt-card reveal">
+          <div class="section-heading">
+            <p class="eyebrow">Contact</p>
+            <h2>Let us build something smart, useful, and technically strong.</h2>
+          </div>
+
+          <p class="contact-copy">
+            I am looking for opportunities in AI, ML, backend, and full-stack product development where I can keep
+            building and learning.
+          </p>
+
+          <div class="contact-links">
+            <a href="mailto:manishraina2009@gmail.com">manishraina2009@gmail.com</a>
+            <a href="tel:+916005001995">+91 6005001995</a>
+            <a href="https://linkedin.com/in/manish-raina-53278028b/" target="_blank"
+              rel="noreferrer">linkedin.com/in/manish-raina-53278028b</a>
+            <a href="https://github.com/manishraina0904" target="_blank" rel="noreferrer">github.com/manishraina0904</a>
+          </div>
+
+          <div class="hero-actions">
+            <a class="button" href="mailto:manishraina2009@gmail.com">Email Manish</a>
+            <a class="button button-ghost" href="https://github.com/manishraina0904" target="_blank"
+              rel="noreferrer">Open GitHub</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Manish Raina | AI/ML Developer Portfolio</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

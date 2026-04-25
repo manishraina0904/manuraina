@@ -1,0 +1,6 @@
+<svg width="160" height="160" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M80 28L130 56V108L80 136L30 108V56L80 28Z" fill="#4F88FF" opacity="0.4"/>
+  <path d="M80 28L130 56V108L80 80V28Z" fill="#7EE7FF" opacity="0.5"/>
+  <path d="M80 80L130 108L80 136L30 108L80 80Z" fill="#4F88FF" opacity="0.7"/>
+  <text x="80" y="90" text-anchor="middle" font-family="monospace" font-size="28" font-weight="bold" fill="#ECF3FF">N</text>
+</svg>
