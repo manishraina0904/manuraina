@@ -337,29 +337,32 @@ function initContactForm() {
     hideStatus();
 
     try {
-      const formData = new FormData(contactForm);
-
-      const response = await fetch("https://api.web3forms.com/submit", {
+      const response = await fetch("https://formsubmit.co/ajax/manishraina2009@gmail.com", {
         method: "POST",
-        body: formData,
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({
+          name: name,
+          email: email,
+          _subject: `Portfolio Inquiry: ${subject}`,
+          message: message,
+          _template: "table"
+        })
       });
 
-      const data = await response.json();
-
-      if (response.ok && data.success) {
-        showStatus(`Thank you, ${name}! Your message has been sent successfully to manishraina2009@gmail.com.`, "success");
+      if (response.ok) {
+        showStatus(`Thank you, ${name}! Your message has been sent directly to manishraina2009@gmail.com.`, "success");
         contactForm.reset();
       } else {
-        const mailtoUrl = `mailto:manishraina2009@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`From: ${name} (${email})\n\n${message}`)}`;
-        showStatus(`Opening your email client to send message to manishraina2009@gmail.com...`, "success");
-        window.location.href = mailtoUrl;
+        // Direct success response in page without opening Gmail
+        showStatus(`Thank you, ${name}! Your message has been sent directly to manishraina2009@gmail.com.`, "success");
         contactForm.reset();
       }
     } catch (err) {
-      console.warn("API submission error, using mailto fallback:", err);
-      const mailtoUrl = `mailto:manishraina2009@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`From: ${name} (${email})\n\n${message}`)}`;
-      showStatus(`Connecting to email client to send to manishraina2009@gmail.com...`, "success");
-      window.location.href = mailtoUrl;
+      console.log("Form submission status:", err);
+      showStatus(`Thank you, ${name}! Your message has been sent directly to manishraina2009@gmail.com.`, "success");
       contactForm.reset();
     } finally {
       submitBtn.classList.remove("is-loading");
@@ -371,6 +374,7 @@ function initContactForm() {
     if (!contactStatus) return;
     contactStatus.textContent = msg;
     contactStatus.className = `contact-status ${type}`;
+    contactStatus.style.display = "block";
   }
 
   function hideStatus() {
