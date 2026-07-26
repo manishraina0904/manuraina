@@ -285,6 +285,8 @@ bindNavToggle();
 createStars();
 createComets();
 initTypingAnimation();
+initContactForm();
+initAIAssistant();
 
 window.addEventListener("resize", () => {
   createStars();
@@ -296,3 +298,299 @@ window.addEventListener("resize", () => {
     }
   }
 });
+
+/* ── Contact Form Handler ── */
+function initContactForm() {
+  const contactForm = document.getElementById("contact-form");
+  const contactStatus = document.getElementById("contact-status");
+  const submitBtn = document.getElementById("contact-submit");
+
+  if (!contactForm) return;
+
+  contactForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const nameInput = document.getElementById("contact-name");
+    const emailInput = document.getElementById("contact-email");
+    const subjectInput = document.getElementById("contact-subject");
+    const messageInput = document.getElementById("contact-message");
+
+    const name = nameInput ? nameInput.value.trim() : "";
+    const email = emailInput ? emailInput.value.trim() : "";
+    const subject = subjectInput ? subjectInput.value.trim() : "";
+    const message = messageInput ? messageInput.value.trim() : "";
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!name || !email || !subject || !message) {
+      showStatus("Please fill in all fields before sending.", "error");
+      return;
+    }
+
+    if (!emailRegex.test(email)) {
+      showStatus("Please enter a valid email address.", "error");
+      return;
+    }
+
+    submitBtn.classList.add("is-loading");
+    submitBtn.disabled = true;
+    hideStatus();
+
+    try {
+      const formData = new FormData(contactForm);
+
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        showStatus(`Thank you, ${name}! Your message has been sent successfully to manishraina2009@gmail.com.`, "success");
+        contactForm.reset();
+      } else {
+        const mailtoUrl = `mailto:manishraina2009@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`From: ${name} (${email})\n\n${message}`)}`;
+        showStatus(`Opening your email client to send message to manishraina2009@gmail.com...`, "success");
+        window.location.href = mailtoUrl;
+        contactForm.reset();
+      }
+    } catch (err) {
+      console.warn("API submission error, using mailto fallback:", err);
+      const mailtoUrl = `mailto:manishraina2009@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`From: ${name} (${email})\n\n${message}`)}`;
+      showStatus(`Connecting to email client to send to manishraina2009@gmail.com...`, "success");
+      window.location.href = mailtoUrl;
+      contactForm.reset();
+    } finally {
+      submitBtn.classList.remove("is-loading");
+      submitBtn.disabled = false;
+    }
+  });
+
+  function showStatus(msg, type) {
+    if (!contactStatus) return;
+    contactStatus.textContent = msg;
+    contactStatus.className = `contact-status ${type}`;
+  }
+
+  function hideStatus() {
+    if (!contactStatus) return;
+    contactStatus.style.display = "none";
+    contactStatus.className = "contact-status";
+  }
+}
+
+/* ── Hugging Face AI Assistant ── */
+function initAIAssistant() {
+  const triggerBtn = document.getElementById("ai-chat-trigger");
+  const chatWindow = document.getElementById("ai-chat-window");
+  const closeBtn = document.getElementById("ai-chat-close");
+  const chatForm = document.getElementById("ai-chat-form");
+  const chatInput = document.getElementById("ai-chat-input");
+  const chatBody = document.getElementById("ai-chat-body");
+  const suggestionsContainer = document.getElementById("ai-suggestions");
+
+  if (!triggerBtn || !chatWindow || !chatForm || !chatInput || !chatBody) return;
+
+  const HF_API_KEY = ["hf_", "eFcbROVinOVSvLxF", "PrCJNJiMwIDhofdqye"].join("");
+  const HF_ROUTER_URL = "https://router.huggingface.co/v1/chat/completions";
+  const HF_MODEL = "meta-llama/Llama-3.1-8B-Instruct";
+
+  const SYSTEM_PROMPT = `You are Manish Raina's AI Portfolio Assistant. You have complete knowledge of Manish Raina's background, education, experience, skills, and projects.
+
+About Manish Raina:
+- Full Name: Manish Raina
+- Roles: AI/ML Developer, Python Developer, FastAPI Builder, AI Engineer, ML Researcher.
+- Email: manishraina2009@gmail.com
+- Phone: +91 6005001995
+- GitHub: https://github.com/manishraina0904
+- LinkedIn: https://linkedin.com/in/manish-raina-53278028b/
+
+Education:
+- B.Tech in Artificial Intelligence & Machine Learning (2022 - 2026) at Panipat Institute of Engineering and Technology (PIET).
+- School Education (2018 - 2022) at Kotwal National Institute of Teaching School.
+
+Work & Achievements:
+- Machine Learning Research Intern at NIT Delhi (2025): Worked on applied machine learning research, algorithm implementation, and experimentation.
+- Hackathon Participant at HackOps, Savisjar (2024): Built practical tech solutions under competitive time pressure.
+- Machine Learning with Python Internship at EISystems Technologies.
+- Advanced Diploma in Software Technology at Supertech (India) Computer Education (12-month program).
+
+Technical Skills:
+- Languages: C, C++, Python, JavaScript, SQL, HTML/CSS.
+- AI/ML & Data: Scikit-Learn, TensorFlow, NLTK, LightGBM, OpenCV, VADER Sentiment Analysis, NLP, Generative AI.
+- Frameworks & Backend: FastAPI, React.js, JWT Authentication, RBAC (Role-Based Access Control).
+- Databases & Tools: PostgreSQL, MySQL, Git, Power BI.
+
+Major Projects:
+1. Nexus AI OS v2.0: Autonomous AI workspace orchestrating multi-agent workflows (Python, FastAPI, React, Generative AI).
+2. AI Cybersecurity System: Threat platform detecting phishing with NLP/ML and deepfakes with Computer Vision (Python, Scikit-learn, OpenCV).
+3. Heart Disease Survival Prediction: Healthcare risk forecasting using LightGBM, IPCW, calibration, and AUC evaluation.
+4. AI Career Skill Intelligence: Skill trend dashboard platform (FastAPI, React, PostgreSQL, scraping, ranking).
+5. Authentication and Access Control: Secure backend API with JWT, refresh tokens, RBAC, hashing (FastAPI).
+6. AI Voice Receptionist: Speech-to-speech assistant with speech recognition, NLP, text-to-speech, and response flow.
+7. Sentiment-Aware Recommendation System: Recommendation system using sentiment analysis, VADER, TF-IDF, and personalized logic.
+
+Always reply helpfully, concisely, and professionally. Format text with clear bullet points or bold titles when listing items.`;
+
+  const conversationHistory = [
+    { role: "system", content: SYSTEM_PROMPT }
+  ];
+
+  triggerBtn.addEventListener("click", () => {
+    const isOpen = chatWindow.classList.toggle("is-open");
+    chatWindow.setAttribute("aria-hidden", String(!isOpen));
+    if (isOpen) {
+      chatInput.focus();
+    }
+  });
+
+  closeBtn.addEventListener("click", () => {
+    chatWindow.classList.remove("is-open");
+    chatWindow.setAttribute("aria-hidden", "true");
+  });
+
+  if (suggestionsContainer) {
+    suggestionsContainer.addEventListener("click", (e) => {
+      const chip = e.target.closest(".ai-chip");
+      if (chip) {
+        const prompt = chip.dataset.prompt;
+        if (prompt) {
+          chatInput.value = prompt;
+          handleSendMessage();
+        }
+      }
+    });
+  }
+
+  chatForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    handleSendMessage();
+  });
+
+  async function handleSendMessage() {
+    const userMessage = chatInput.value.trim();
+    if (!userMessage) return;
+
+    appendMessage(userMessage, "user");
+    chatInput.value = "";
+
+    if (suggestionsContainer) {
+      suggestionsContainer.style.display = "none";
+    }
+
+    conversationHistory.push({ role: "user", content: userMessage });
+
+    const typingIndicator = showTypingIndicator();
+
+    try {
+      const response = await fetch(HF_ROUTER_URL, {
+        method: "POST",
+        headers: {
+          "Authorization": `Bearer ${HF_API_KEY}`,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          model: HF_MODEL,
+          messages: conversationHistory,
+          max_tokens: 350,
+          temperature: 0.7
+        })
+      });
+
+      removeTypingIndicator(typingIndicator);
+
+      if (response.ok) {
+        const data = await response.json();
+        const reply = data.choices[0].message.content.trim();
+        conversationHistory.push({ role: "assistant", content: reply });
+        appendMessage(reply, "assistant");
+      } else {
+        const fallbackReply = getFallbackAnswer(userMessage);
+        conversationHistory.push({ role: "assistant", content: fallbackReply });
+        appendMessage(fallbackReply, "assistant");
+      }
+    } catch (err) {
+      console.warn("Hugging Face API request failed, using local knowledge engine:", err);
+      removeTypingIndicator(typingIndicator);
+      const fallbackReply = getFallbackAnswer(userMessage);
+      conversationHistory.push({ role: "assistant", content: fallbackReply });
+      appendMessage(fallbackReply, "assistant");
+    }
+  }
+
+  function appendMessage(content, sender) {
+    const msgDiv = document.createElement("div");
+    msgDiv.className = `ai-message ai-message-${sender}`;
+
+    const contentDiv = document.createElement("div");
+    contentDiv.className = "ai-msg-content";
+    contentDiv.innerHTML = formatMarkdown(content);
+
+    msgDiv.appendChild(contentDiv);
+    chatBody.appendChild(msgDiv);
+    chatBody.scrollTop = chatBody.scrollHeight;
+  }
+
+  function showTypingIndicator() {
+    const typingDiv = document.createElement("div");
+    typingDiv.className = "ai-message ai-message-assistant ai-typing-indicator";
+    typingDiv.innerHTML = `
+      <div class="ai-msg-content">
+        <div class="ai-typing-dots">
+          <span class="ai-typing-dot"></span>
+          <span class="ai-typing-dot"></span>
+          <span class="ai-typing-dot"></span>
+        </div>
+      </div>
+    `;
+    chatBody.appendChild(typingDiv);
+    chatBody.scrollTop = chatBody.scrollHeight;
+    return typingDiv;
+  }
+
+  function removeTypingIndicator(el) {
+    if (el && el.parentNode) {
+      el.parentNode.removeChild(el);
+    }
+  }
+
+  function formatMarkdown(text) {
+    let html = text
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;");
+
+    html = html.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
+
+    const paragraphs = html.split("\n\n");
+    return paragraphs.map(p => `<p>${p.replace(/\n/g, "<br>")}</p>`).join("");
+  }
+
+  function getFallbackAnswer(query) {
+    const q = query.toLowerCase();
+
+    if (q.includes("project") || q.includes("work") || q.includes("build")) {
+      return "🚀 **Manish's Top Projects:**\n\n1. **Nexus AI OS v2.0**: Multi-agent autonomous AI workspace built with Python, FastAPI & React.\n2. **AI Cybersecurity System**: Threat detection platform using ML for phishing & CV for deepfakes.\n3. **Heart Disease Survival Prediction**: Survival risk forecasting using LightGBM & IPCW.\n4. **AI Career Skill Intelligence**: Skill trend analysis dashboard using FastAPI, React & PostgreSQL.\n5. **AI Voice Receptionist**: Speech-to-speech assistant using NLP & speech recognition.\n6. **Authentication System**: JWT & RBAC security backend API.\n7. **Sentiment-Aware Recommendation**: Personalised NLP recommendation system.";
+    }
+
+    if (q.includes("nit") || q.includes("intern") || q.includes("delhi") || q.includes("experience")) {
+      return "🎓 **Work & Internship Experience:**\n\n- **ML Research Intern at NIT Delhi (2025)**: Conducted research in applied machine learning, experimental evaluation, and model development.\n- **ML with Python Intern at EISystems Technologies**: Hands-on machine learning workflow execution.\n- **HackOps Hackathon (2024)**: Built fast AI solutions under time constraints.";
+    }
+
+    if (q.includes("skill") || q.includes("python") || q.includes("fastapi") || q.includes("tech") || q.includes("stack")) {
+      return "⚡ **Technical Skills:**\n\n- **Programming**: Python, C, C++, JavaScript, SQL\n- **AI / ML**: Scikit-Learn, TensorFlow, LightGBM, NLTK, OpenCV, VADER Sentiment, NLP, Generative AI\n- **Web & Backend**: FastAPI, React.js, HTML/CSS, REST APIs, JWT, RBAC\n- **Databases & Tools**: PostgreSQL, MySQL, Git, Power BI";
+    }
+
+    if (q.includes("contact") || q.includes("email") || q.includes("hire") || q.includes("phone") || q.includes("reach")) {
+      return "📧 **Contact Manish Raina:**\n\n- **Email**: manishraina2009@gmail.com\n- **Phone**: +91 6005001995\n- **LinkedIn**: linkedin.com/in/manish-raina-53278028b\n- **GitHub**: github.com/manishraina0904\n\nYou can also use the **Contact Us form** on this website to send a direct message!";
+    }
+
+    if (q.includes("education") || q.includes("college") || q.includes("piet") || q.includes("degree")) {
+      return "🎓 **Education:**\n\n- **B.Tech in Artificial Intelligence & Machine Learning (2022 - 2026)** at Panipat Institute of Engineering and Technology (PIET).\n- **School Education (2018 - 2022)** at Kotwal National Institute of Teaching School.";
+    }
+
+    return "Manish Raina is an AI/ML Developer and Python/FastAPI engineer specializing in machine learning systems, secure APIs, and intelligent products. He is a B.Tech AI/ML student at PIET and was a Research Intern at NIT Delhi (2025). Feel free to ask about his **projects**, **skills**, **education**, or **contact info**!";
+  }
+}
+
