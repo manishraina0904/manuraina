@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #05030A;
+    --foreground: #F4F1FA;
+  }
+
+  * {
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: #05030A;
+    color: #F4F1FA;
+  }
+
+  body {
+    background-color: #05030A;
+    color: #F4F1FA;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: rgba(59, 130, 246, 0.25);
+    color: #F4F1FA;
+  }
+}
+
+/* CUSTOM ULTRA-SLIM SCROLLBAR */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #05030A;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.14);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(59, 130, 246, 0.4);
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* MARQUEE ANIMATION */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-33.333%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 35s linear infinite;
+}
+
+/* AMBIENT MESH GRADIENT */
+.bg-mesh {
+  background-image: 
+    radial-gradient(at 10% 20%, rgba(59, 130, 246, 0.04) 0px, transparent 50%),
+    radial-gradient(at 90% 80%, rgba(29, 78, 216, 0.03) 0px, transparent 50%);
+}
+
+/* MASK GRADIENTS */
+.mask-gradient {
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+/* REDUCED MOTION SAFEGUARDS */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

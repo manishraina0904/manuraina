@@ -1,162 +1,145 @@
-const starsContainer = document.querySelector(".stars");
-const cometsContainer = document.querySelector(".comets");
-const tiltCards = document.querySelectorAll(".tilt-card");
-const revealItems = document.querySelectorAll(".reveal");
-const counters = document.querySelectorAll(".counter");
-const topbar = document.querySelector(".topbar");
-const navToggle = document.querySelector(".nav-toggle");
-const layeredItems = document.querySelectorAll("[data-depth]");
-const liveImages = document.querySelectorAll("img[data-live-src]");
+/* 
+ * AWARD-WINNING ULTRA-ANIMATED SAAS & ROBOTICS AI PORTFOLIO ENGINE
+ * Manish Raina Portfolio | Linear.app / Vercel / Apple Style Animations & Micro-Interactions
+ */
 
-const supportsHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
-const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+/* ── HERO AMBIENT PARTICLES CANVAS ── */
+function initHeroParticles() {
+  const canvas = document.getElementById("hero-particles-canvas");
+  if (!canvas) return;
+  const ctx = canvas.getContext("2d");
 
-function createStars() {
-  if (!starsContainer) {
-    return;
+  function resize() {
+    canvas.width = canvas.parentElement.clientWidth;
+    canvas.height = canvas.parentElement.clientHeight;
+  }
+  resize();
+  window.addEventListener("resize", resize);
+
+  const particles = [];
+  const particleCount = 45;
+
+  for (let i = 0; i < particleCount; i++) {
+    particles.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      vx: (Math.random() - 0.5) * 0.6,
+      vy: (Math.random() - 0.5) * 0.6,
+      radius: Math.random() * 2 + 1,
+      color: Math.random() > 0.5 ? "rgba(0, 240, 255, " : "rgba(139, 92, 246, ",
+      alpha: Math.random() * 0.6 + 0.2
+    });
   }
 
-  const starCount = window.innerWidth < 480 ? 30 : window.innerWidth < 860 ? 50 : 180;
-  starsContainer.innerHTML = "";
+  function render() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  for (let i = 0; i < starCount; i += 1) {
-    const star = document.createElement("span");
-    const size = Math.random() * 2.8 + 0.5;
+    particles.forEach(p => {
+      p.x += p.vx;
+      p.y += p.vy;
 
-    star.className = "star";
-    star.style.left = `${Math.random() * 100}%`;
-    star.style.top = `${Math.random() * 100}%`;
-    star.style.opacity = (Math.random() * 0.8 + 0.2).toFixed(2);
-    star.style.setProperty("--duration", `${Math.random() * 5 + 3}s`);
-    star.style.setProperty("--delay", `${Math.random() * 5}s`);
-    star.style.width = `${size}px`;
-    star.style.height = `${size}px`;
+      if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+      if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
 
-    // Color variation for realism
-    const colors = [
-      "rgba(255, 255, 255, 0.95)",
-      "rgba(200, 220, 255, 0.9)",
-      "rgba(255, 220, 180, 0.85)",
-      "rgba(180, 200, 255, 0.9)",
-      "rgba(255, 200, 200, 0.8)",
-    ];
-    star.style.background = colors[Math.floor(Math.random() * colors.length)];
+      ctx.fillStyle = `${p.color}${p.alpha})`;
+      ctx.shadowColor = "#00f0ff";
+      ctx.shadowBlur = 10;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+      ctx.fill();
+    });
 
-    starsContainer.appendChild(star);
+    requestAnimationFrame(render);
   }
+
+  requestAnimationFrame(render);
 }
 
-function createComets() {
-  if (!cometsContainer || prefersReducedMotion || window.innerWidth <= 768) {
-    return;
-  }
+/* ── ACTIVE NAV HIGHLIGHTER & SCROLL TELEMETRY ── */
+function initActiveNav() {
+  const navLinks = document.querySelectorAll(".nav-links a");
+  const sections = document.querySelectorAll("section[id]");
+  const scrollProgress = document.getElementById("scroll-progress");
 
-  cometsContainer.innerHTML = "";
-
-  for (let i = 0; i < 7; i += 1) {
-    const comet = document.createElement("span");
-
-    comet.className = "comet";
-    comet.style.top = `${5 + Math.random() * 55}%`;
-    comet.style.left = `${-15 - Math.random() * 12}%`;
-    comet.style.setProperty("--time", `${7 + Math.random() * 8}s`);
-    comet.style.setProperty("--delay", `${Math.random() * 12}s`);
-    cometsContainer.appendChild(comet);
-  }
-}
-
-function setLayerDepths() {
-  layeredItems.forEach((item) => {
-    item.style.setProperty("--depth", item.dataset.depth || 0);
-  });
-}
-
-function loadLiveImages() {
-  liveImages.forEach((img) => {
-    const liveSrc = img.dataset.liveSrc;
-
-    if (!liveSrc) {
-      return;
+  window.addEventListener("scroll", () => {
+    const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = totalHeight > 0 ? (window.scrollY / totalHeight) * 100 : 0;
+    if (scrollProgress) {
+      scrollProgress.style.width = `${progress}%`;
     }
 
-    const tester = new Image();
-    tester.onload = () => {
-      img.src = liveSrc;
-    };
-    tester.src = liveSrc;
-  });
-}
+    let currentId = "";
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 140;
+      if (window.scrollY >= sectionTop) {
+        currentId = section.getAttribute("id");
+      }
+    });
 
-function resetTilt(card) {
-  card.style.transform = "perspective(1400px) rotateX(0deg) rotateY(0deg) translateY(0)";
-  card.style.setProperty("--pointer-x", "50%");
-  card.style.setProperty("--pointer-y", "50%");
-  card.style.setProperty("--glow-opacity", "0");
-
-  card.querySelectorAll("[data-depth]").forEach((layer) => {
-    layer.style.setProperty("--shift-x", "0px");
-    layer.style.setProperty("--shift-y", "0px");
-  });
-}
-
-function attachTilt(card, index) {
-  card.style.setProperty("--float-delay", `${(index % 7) * 0.42}s`);
-
-  if (prefersReducedMotion) {
-    return;
-  }
-
-  if (!supportsHover) {
-    card.classList.add("idle-float");
-    return;
-  }
-
-  const intensity = card.classList.contains("scene-card") ? 8 : 12;
-  const layers = card.querySelectorAll("[data-depth]");
-  let ticking = false;
-
-  card.addEventListener("mousemove", (event) => {
-    if (!ticking) {
-      window.requestAnimationFrame(() => {
-        const rect = card.getBoundingClientRect();
-        const x = event.clientX - rect.left;
-        const y = event.clientY - rect.top;
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-        const offsetX = x - centerX;
-        const offsetY = y - centerY;
-        const rotateX = (offsetY / centerY) * -intensity;
-        const rotateY = (offsetX / centerX) * intensity;
-
-        card.style.transform = `perspective(1400px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px)`;
-        card.style.setProperty("--pointer-x", `${(x / rect.width) * 100}%`);
-        card.style.setProperty("--pointer-y", `${(y / rect.height) * 100}%`);
-        card.style.setProperty("--glow-opacity", "1");
-
-        layers.forEach((layer) => {
-          const depth = Number(layer.dataset.depth || 0);
-          layer.style.setProperty("--shift-x", `${(offsetX / centerX) * depth * 0.14}px`);
-          layer.style.setProperty("--shift-y", `${(offsetY / centerY) * depth * -0.14}px`);
-        });
-        ticking = false;
-      });
-      ticking = true;
-    }
+    navLinks.forEach(link => {
+      link.classList.remove("active");
+      if (link.getAttribute("href") === `#${currentId}`) {
+        link.classList.add("active");
+      }
+    });
   }, { passive: true });
-
-  card.addEventListener("mouseleave", () => {
-    resetTilt(card);
-  });
-
-  card.addEventListener("blur", () => {
-    resetTilt(card);
-  }, true);
 }
 
+/* ── TYPING ROLE SWITCHER ── */
+function initTypingAnimation() {
+  const typingEl = document.getElementById("typing-role");
+  if (!typingEl) return;
+
+  const roles = [
+    "AI & ML Products",
+    "FastAPI & Backend APIs",
+    "Multi-Agent AI Systems",
+    "Generative AI Workflows",
+    "Full-Stack Applications",
+    "Machine Learning Models",
+  ];
+
+  let roleIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+  const typeSpeed = 75;
+  const deleteSpeed = 40;
+
+  function tick() {
+    const currentRole = roles[roleIndex];
+
+    if (!isDeleting) {
+      charIndex += 1;
+      typingEl.textContent = currentRole.substring(0, charIndex);
+
+      if (charIndex === currentRole.length) {
+        isDeleting = true;
+        setTimeout(tick, 2000);
+        return;
+      }
+      setTimeout(tick, typeSpeed);
+    } else {
+      charIndex -= 1;
+      typingEl.textContent = currentRole.substring(0, charIndex);
+
+      if (charIndex === 0) {
+        isDeleting = false;
+        roleIndex = (roleIndex + 1) % roles.length;
+        setTimeout(tick, 400);
+        return;
+      }
+      setTimeout(tick, deleteSpeed);
+    }
+  }
+
+  setTimeout(tick, 500);
+}
+
+/* ── COUNTER ANIMATIONS ── */
 function animateCounter(counter) {
   const target = Number(counter.dataset.target || 0);
   const suffix = counter.dataset.suffix || "";
-  const duration = 1300;
+  const duration = 1400;
   const startTime = performance.now();
 
   function update(now) {
@@ -175,216 +158,58 @@ function animateCounter(counter) {
   requestAnimationFrame(update);
 }
 
-function bindNavToggle() {
-  if (!topbar || !navToggle) {
-    return;
-  }
+/* ── REVEAL OBSERVER ── */
+function initRevealObserver() {
+  const revealItems = document.querySelectorAll(".reveal");
 
-  navToggle.addEventListener("click", () => {
-    const isOpen = topbar.classList.toggle("is-open");
-    navToggle.setAttribute("aria-expanded", String(isOpen));
-  });
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
 
-  topbar.querySelectorAll(".nav a").forEach((link) => {
-    link.addEventListener("click", () => {
-      topbar.classList.remove("is-open");
-      navToggle.setAttribute("aria-expanded", "false");
+        if (entry.target.classList.contains("stat-card-saas") || entry.target.querySelector(".counter")) {
+          const counters = entry.target.querySelectorAll(".counter");
+          counters.forEach(counter => {
+            if (!counter.dataset.played) {
+              counter.dataset.played = "true";
+              animateCounter(counter);
+            }
+          });
+        }
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  revealItems.forEach(item => observer.observe(item));
+}
+
+/* ── MOUSE SPOTLIGHT ENGINE FOR SAAS CARDS ── */
+function initMouseSpotlight() {
+  if (!window.matchMedia("(hover: hover)").matches) return;
+
+  const cards = document.querySelectorAll(".project-saas-card, .pillar-card, .stat-card-saas");
+
+  cards.forEach(card => {
+    card.addEventListener("mousemove", (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const cx = rect.width / 2;
+      const cy = rect.height / 2;
+      const rx = ((y - cy) / cy) * -4;
+      const ry = ((x - cx) / cx) * 4;
+
+      card.style.transform = `perspective(1000px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-4px)`;
+    });
+
+    card.addEventListener("mouseleave", () => {
+      card.style.transform = "perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)";
     });
   });
 }
 
-/* ── Typing Animation ── */
-function initTypingAnimation() {
-  const typingEl = document.getElementById("typing-role");
-  if (!typingEl) return;
-
-  const roles = [
-    "Frontend Developer",
-    "AI Engineer",
-    "ML Researcher",
-    "Backend Developer",
-    "Full Stack Developer",
-    "Python Developer",
-    "Data Scientist",
-  ];
-
-  let roleIndex = 0;
-  let charIndex = 0;
-  let isDeleting = false;
-  const typeSpeed = 80;
-  const deleteSpeed = 45;
-  const pauseAfterType = 2000;
-  const pauseAfterDelete = 400;
-
-  function tick() {
-    const currentRole = roles[roleIndex];
-
-    if (!isDeleting) {
-      charIndex += 1;
-      typingEl.textContent = currentRole.substring(0, charIndex);
-
-      if (charIndex === currentRole.length) {
-        isDeleting = true;
-        setTimeout(tick, pauseAfterType);
-        return;
-      }
-      setTimeout(tick, typeSpeed);
-    } else {
-      charIndex -= 1;
-      typingEl.textContent = currentRole.substring(0, charIndex);
-
-      if (charIndex === 0) {
-        isDeleting = false;
-        roleIndex = (roleIndex + 1) % roles.length;
-        setTimeout(tick, pauseAfterDelete);
-        return;
-      }
-      setTimeout(tick, deleteSpeed);
-    }
-  }
-
-  setTimeout(tick, 600);
-}
-
-const revealObserver = new IntersectionObserver((entries, observer) => {
-  entries.forEach((entry) => {
-    if (!entry.isIntersecting) {
-      return;
-    }
-
-    entry.target.classList.add("is-visible");
-
-    if (entry.target.classList.contains("stat-card")) {
-      const counter = entry.target.querySelector(".counter");
-
-      if (counter && !counter.dataset.played) {
-        counter.dataset.played = "true";
-        animateCounter(counter);
-      }
-    }
-
-    observer.unobserve(entry.target);
-  });
-}, {
-  threshold: 0.18
-});
-
-revealItems.forEach((item, index) => {
-  item.style.transitionDelay = `${Math.min((index % 6) * 65, 260)}ms`;
-  revealObserver.observe(item);
-});
-
-tiltCards.forEach((card, index) => attachTilt(card, index));
-counters.forEach((counter) => {
-  counter.textContent = `0${counter.dataset.suffix || ""}`;
-});
-
-setLayerDepths();
-loadLiveImages();
-bindNavToggle();
-createStars();
-createComets();
-initTypingAnimation();
-initContactForm();
-initAIAssistant();
-
-window.addEventListener("resize", () => {
-  createStars();
-
-  if (window.innerWidth > 980 && topbar) {
-    topbar.classList.remove("is-open");
-    if (navToggle) {
-      navToggle.setAttribute("aria-expanded", "false");
-    }
-  }
-});
-
-/* ── Contact Form Handler ── */
-function initContactForm() {
-  const contactForm = document.getElementById("contact-form");
-  const contactStatus = document.getElementById("contact-status");
-  const submitBtn = document.getElementById("contact-submit");
-
-  if (!contactForm) return;
-
-  contactForm.addEventListener("submit", async (e) => {
-    e.preventDefault();
-
-    const nameInput = document.getElementById("contact-name");
-    const emailInput = document.getElementById("contact-email");
-    const subjectInput = document.getElementById("contact-subject");
-    const messageInput = document.getElementById("contact-message");
-
-    const name = nameInput ? nameInput.value.trim() : "";
-    const email = emailInput ? emailInput.value.trim() : "";
-    const subject = subjectInput ? subjectInput.value.trim() : "";
-    const message = messageInput ? messageInput.value.trim() : "";
-
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    if (!name || !email || !subject || !message) {
-      showStatus("Please fill in all fields before sending.", "error");
-      return;
-    }
-
-    if (!emailRegex.test(email)) {
-      showStatus("Please enter a valid email address.", "error");
-      return;
-    }
-
-    submitBtn.classList.add("is-loading");
-    submitBtn.disabled = true;
-    hideStatus();
-
-    try {
-      const response = await fetch("https://formsubmit.co/ajax/manishraina2009@gmail.com", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json"
-        },
-        body: JSON.stringify({
-          name: name,
-          email: email,
-          _subject: `Portfolio Inquiry: ${subject}`,
-          message: message,
-          _template: "table"
-        })
-      });
-
-      if (response.ok) {
-        showStatus(`Thank you, ${name}! Your message has been sent directly to manishraina2009@gmail.com.`, "success");
-        contactForm.reset();
-      } else {
-        // Direct success response in page without opening Gmail
-        showStatus(`Thank you, ${name}! Your message has been sent directly to manishraina2009@gmail.com.`, "success");
-        contactForm.reset();
-      }
-    } catch (err) {
-      console.log("Form submission status:", err);
-      showStatus(`Thank you, ${name}! Your message has been sent directly to manishraina2009@gmail.com.`, "success");
-      contactForm.reset();
-    } finally {
-      submitBtn.classList.remove("is-loading");
-      submitBtn.disabled = false;
-    }
-  });
-
-  function showStatus(msg, type) {
-    if (!contactStatus) return;
-    contactStatus.textContent = msg;
-    contactStatus.className = `contact-status ${type}`;
-    contactStatus.style.display = "block";
-  }
-
-  function hideStatus() {
-    if (!contactStatus) return;
-    contactStatus.style.display = "none";
-    contactStatus.className = "contact-status";
-  }
-}
-
-/* ── Hugging Face AI Assistant ── */
+/* ── HUGGING FACE AI CHATBOT ASSISTANT ── */
 function initAIAssistant() {
   const triggerBtn = document.getElementById("ai-chat-trigger");
   const chatWindow = document.getElementById("ai-chat-window");
@@ -444,9 +269,7 @@ Always reply helpfully, concisely, and professionally. Format text with clear bu
   triggerBtn.addEventListener("click", () => {
     const isOpen = chatWindow.classList.toggle("is-open");
     chatWindow.setAttribute("aria-hidden", String(!isOpen));
-    if (isOpen) {
-      chatInput.focus();
-    }
+    if (isOpen) chatInput.focus();
   });
 
   closeBtn.addEventListener("click", () => {
@@ -479,12 +302,9 @@ Always reply helpfully, concisely, and professionally. Format text with clear bu
     appendMessage(userMessage, "user");
     chatInput.value = "";
 
-    if (suggestionsContainer) {
-      suggestionsContainer.style.display = "none";
-    }
+    if (suggestionsContainer) suggestionsContainer.style.display = "none";
 
     conversationHistory.push({ role: "user", content: userMessage });
-
     const typingIndicator = showTypingIndicator();
 
     try {
@@ -515,7 +335,6 @@ Always reply helpfully, concisely, and professionally. Format text with clear bu
         appendMessage(fallbackReply, "assistant");
       }
     } catch (err) {
-      console.warn("Hugging Face API request failed, using local knowledge engine:", err);
       removeTypingIndicator(typingIndicator);
       const fallbackReply = getFallbackAnswer(userMessage);
       conversationHistory.push({ role: "assistant", content: fallbackReply });
@@ -554,21 +373,13 @@ Always reply helpfully, concisely, and professionally. Format text with clear bu
   }
 
   function removeTypingIndicator(el) {
-    if (el && el.parentNode) {
-      el.parentNode.removeChild(el);
-    }
+    if (el && el.parentNode) el.parentNode.removeChild(el);
   }
 
   function formatMarkdown(text) {
-    let html = text
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;");
-
+    let html = text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
     html = html.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
-
-    const paragraphs = html.split("\n\n");
-    return paragraphs.map(p => `<p>${p.replace(/\n/g, "<br>")}</p>`).join("");
+    return html.split("\n\n").map(p => `<p>${p.replace(/\n/g, "<br>")}</p>`).join("");
   }
 
   function getFallbackAnswer(query) {
@@ -587,7 +398,7 @@ Always reply helpfully, concisely, and professionally. Format text with clear bu
     }
 
     if (q.includes("contact") || q.includes("email") || q.includes("hire") || q.includes("phone") || q.includes("reach")) {
-      return "📧 **Contact Manish Raina:**\n\n- **Email**: manishraina2009@gmail.com\n- **Phone**: +91 6005001995\n- **LinkedIn**: linkedin.com/in/manish-raina-53278028b\n- **GitHub**: github.com/manishraina0904\n\nYou can also use the **Contact Us form** on this website to send a direct message!";
+      return "📧 **Contact Manish Raina:**\n\n- **Email**: manishraina2009@gmail.com\n- **Phone**: +91 6005001995\n- **LinkedIn**: linkedin.com/in/manish-raina-53278028b\n- **GitHub**: github.com/manishraina0904\n\nYou can also use the direct links on this website to get in touch!";
     }
 
     if (q.includes("education") || q.includes("college") || q.includes("piet") || q.includes("degree")) {
@@ -598,3 +409,12 @@ Always reply helpfully, concisely, and professionally. Format text with clear bu
   }
 }
 
+// Initialize Everything on Load
+document.addEventListener("DOMContentLoaded", () => {
+  initHeroParticles();
+  initActiveNav();
+  initTypingAnimation();
+  initRevealObserver();
+  initMouseSpotlight();
+  initAIAssistant();
+});
