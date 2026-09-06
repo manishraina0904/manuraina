@@ -22,38 +22,37 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Manish Raina — Full Stack Developer & AI Engineer",
+  title: "Manish Raina — AI/ML Engineer",
   description:
-    "Portfolio of Manish Raina, Full Stack Developer and AI Engineer specializing in Multi-Agent AI systems, high-performance FastAPI backends, applied ML research at NIT Delhi, and modern interactive WebGL applications.",
+    "Portfolio of Manish Raina, AI/ML Engineer specializing in Multi-Agent AI systems, high-performance FastAPI backends, applied ML research at NIT Delhi, and modern interactive WebGL applications.",
   keywords: [
     "Manish Raina",
-    "Full Stack Developer",
-    "AI Engineer",
-    "Machine Learning",
+    "AI/ML Engineer",
+    "Machine Learning Engineer",
+    "Multi-Agent AI",
     "FastAPI",
     "Python",
     "React",
     "Next.js",
-    "Multi-Agent AI",
     "NIT Delhi",
     "PIET",
     "Portfolio",
   ],
   authors: [{ name: "Manish Raina", url: "https://github.com/manishraina0904" }],
   creator: "Manish Raina",
-  metadataBase: new URL("https://manishraina.vercel.app"),
+  metadataBase: new URL("https://manuraina.vercel.app"),
   openGraph: {
-    title: "Manish Raina — Full Stack Developer & AI Engineer",
+    title: "Manish Raina — AI/ML Engineer",
     description:
       "Explore intelligent multi-agent workspaces, clinical survival ML models, and high-throughput security APIs built by Manish Raina.",
-    url: "https://manishraina.vercel.app",
+    url: "https://manuraina.vercel.app",
     siteName: "Manish Raina Portfolio",
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Manish Raina — Full Stack Developer & AI Engineer",
+    title: "Manish Raina — AI/ML Engineer",
     description:
       "Explore intelligent multi-agent workspaces, clinical survival ML models, and high-throughput security APIs built by Manish Raina.",
   },
@@ -71,8 +70,8 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "Person",
     name: "Manish Raina",
-    jobTitle: "Full Stack Developer & AI Engineer",
-    url: "https://github.com/manishraina0904",
+    jobTitle: "AI/ML Engineer",
+    url: "https://manuraina.vercel.app",
     sameAs: [
       "https://github.com/manishraina0904",
       "https://linkedin.com/in/manish-raina-53278028b/",

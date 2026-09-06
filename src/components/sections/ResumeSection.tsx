@@ -104,7 +104,7 @@ export default function ResumeSection({
                     Manish Raina — Resume
                   </h3>
                   <span className="font-mono text-[11px] text-muted">
-                    Full Stack Developer &amp; AI Engineer
+                    AI/ML Engineer
                   </span>
                 </div>
               </div>

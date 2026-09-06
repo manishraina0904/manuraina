@@ -3,13 +3,16 @@
 import React, { useState } from "react";
 import { TIMELINE_EXPERIENCE, ExperienceItem } from "@/data/portfolioData";
 import TextReveal from "@/components/animations/TextReveal";
-import { Briefcase, GraduationCap, Trophy, Award, Calendar, MapPin, CheckCircle } from "lucide-react";
+import { Briefcase, GraduationCap, Trophy, Award, Calendar, MapPin, CheckCircle, ExternalLink } from "lucide-react";
 
 export default function ExperienceTimeline() {
   const [activeType, setActiveType] = useState<string>("all");
 
   const filterItems = TIMELINE_EXPERIENCE.filter((item) => {
     if (activeType === "all") return true;
+    if (activeType === "research") return item.type === "Research" || item.type === "Internship";
+    if (activeType === "education") return item.type === "Education";
+    if (activeType === "certification") return item.type === "Certification" || !!item.certificateUrl;
     return item.type.toLowerCase() === activeType.toLowerCase();
   });
 
@@ -23,6 +26,8 @@ export default function ExperienceTimeline() {
         return <Trophy className="w-4 h-4 text-accent-emerald" />;
       case "Internship":
         return <Briefcase className="w-4 h-4 text-accent-cyan" />;
+      case "Certification":
+        return <Trophy className="w-4 h-4 text-accent-emerald" />;
       default:
         return <Calendar className="w-4 h-4 text-muted" />;
     }
@@ -54,6 +59,7 @@ export default function ExperienceTimeline() {
               { id: "all", label: "All" },
               { id: "research", label: "Research & Internships" },
               { id: "education", label: "Education" },
+              { id: "certification", label: "Certifications" },
             ].map((tab) => (
               <button
                 key={tab.id}
@@ -104,7 +110,7 @@ export default function ExperienceTimeline() {
                   <h3 className="font-display font-bold text-xl sm:text-2xl text-foreground mb-1">
                     {item.role}
                   </h3>
-                  <div className="text-sm font-semibold text-accent-violet flex items-center gap-2 mb-4">
+                  <div className="text-sm font-semibold text-accent-violet flex items-center gap-2 mb-3">
                     <span>{item.organization}</span>
                     {item.location && (
                       <span className="text-xs text-muted font-normal flex items-center gap-1 font-mono">
@@ -112,6 +118,21 @@ export default function ExperienceTimeline() {
                       </span>
                     )}
                   </div>
+
+                  {/* Verified Certificate Link if available */}
+                  {item.certificateUrl && (
+                    <div className="mb-4">
+                      <a
+                        href={item.certificateUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-accent-cyan/10 hover:bg-accent-cyan/20 border border-accent-cyan/30 text-accent-cyan font-mono text-xs transition-all group/cert"
+                      >
+                        <ExternalLink className="w-3.5 h-3.5 group-hover/cert:translate-x-0.5 group-hover/cert:-translate-y-0.5 transition-transform" />
+                        <span>View Verified Certificate</span>
+                      </a>
+                    </div>
+                  )}
 
                   {/* Description */}
                   <p className="text-sm text-muted leading-relaxed mb-6">

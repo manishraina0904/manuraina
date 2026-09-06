@@ -57,9 +57,9 @@ export default function AIAssistant({
 
   const SYSTEM_PROMPT = `You are Manish Raina's AI Portfolio Assistant. You have complete, verified knowledge from Manish Raina's exact resume:
 - Name: Manish Raina
-- Title: AI/ML Engineer & Full Stack Developer
-- Summary: AI/ML Engineer with hands-on, end-to-end project experience across model development, backend engineering, and full-stack delivery. Comfortable building with Python, Scikit-learn, TensorFlow, FastAPI/React, Docker, and RAG/MCP-based agent systems.
-- Email: manishraina2009@gmail.com | Phone: +91 6005001995 | GitHub: https://github.com/manishraina0904 | LinkedIn: https://linkedin.com/in/manish-raina-53278028b/
+- Title: AI/ML Engineer
+- Summary: AI/ML Engineer with hands-on, end-to-end project experience across model development, backend engineering, and full-stack delivery. Proven track record shipping multi-agent orchestration systems, production ML pipelines, and full-stack apps with measurable accuracy, latency, and reliability gains using Python, Scikit-learn, TensorFlow, FastAPI, React, Docker, and RAG/MCP-based agent systems.
+- Email: manishraina2009@gmail.com | Phone: +91 6005001995 | GitHub: https://github.com/manishraina0904 | LinkedIn: https://linkedin.com/in/manish-raina-53278028b/ | Portfolio: https://manuraina.vercel.app/
 - Education:
   * B.Tech, Computer Science Engineering (AI & ML) — PIET, Haryana (Aug 2022 – Aug 2026)
   * Senior Secondary (Class XII) — Kotwal National Institute (Mar 2018 – Mar 2022)
@@ -69,26 +69,16 @@ export default function AIAssistant({
   * ML & Model Training: Scikit-learn, TensorFlow, LightGBM, NLP, Model Training & Fine-Tuning, Embedding-based Semantic Search, Model Evaluation (AUC, Cross-Validation, Calibration, IPCW Weighting)
   * Web & Backend / APIs: FastAPI, React.js, REST APIs, API Design & Integration, WebSockets, JWT Authentication, RBAC, Middleware Validation
   * Data & Infra: PostgreSQL, MongoDB, Redis, SQLite, Qdrant Vector DB, Docker, Docker-compose, Git
-  * Other: Web Scraping, Power BI, Speech Recognition & Synthesis (SpeechRecognition, pyttsx3), OpenCV, dlib, Playwright
-- Experience:
-  * Machine Learning Research Intern — NIT Delhi (Aug 2025 – Sept 2025): Researched and implemented supervised ML algorithms using Python, Scikit-learn, Pandas, and NumPy; conducted comparative performance analysis and prepared technical documentation of experimental results.
-  * Machine Learning & Web Development Intern — EISystems Technologies (Aug 2024 – Sept 2024): Worked on data preprocessing and ML model development for client projects, alongside front-end feature development using React.js.
-  * Advanced Diploma in Software Technology (12 Months) — Supertech (India) Computer Education.
-- Major Projects:
-  1. Nexus AI OS v2.0: Custom multi-agent orchestration kernel routing tasks through 12 specialized agents via JSON DAG with planner, reflection, and supervisor safety layers. Custom MCP client with stdio JSON-RPC tool discovery, RAG pipeline indexed via Qdrant, hybrid PostgreSQL/MongoDB/Redis storage layer.
-- Education: B.Tech in CSE (AI & ML) at Panipat Institute of Engineering & Technology (PIET), Haryana (Aug 2022 – Aug 2026, Current).
-- Experience 1: Machine Learning Research Intern at National Institute of Technology (NIT) Delhi (Aug 2025 – Sept 2025). Researched and implemented supervised ML algorithms (Scikit-learn, Pandas, NumPy), conducted comparative performance analysis, documented experimental findings.
-- Experience 2: Machine Learning & Web Development Intern at EISystems Technologies (Aug 2024 – Sept 2024). Data preprocessing, ML model development, React front-end development.
-- Key Projects:
-  1. Nexus AI OS v2.0 (Autonomous Multi-Agent Workspace): 12 specialized agents coordinated via JSON DAG, planner/reflection/supervisor safety layers, custom Model Context Protocol (MCP) client over stdio JSON-RPC, Qdrant Vector DB for hybrid RAG.
-  2. AI Career Skill Intelligence Platform: FastAPI + React + PostgreSQL + Docker. Automated resume parser with spaCy NLP, semantic matching via embeddings, automated job scraping with Playwright, Power BI analytics.
-  3. Calibrated Survival Framework for Heart Disease: LightGBM survival modeling with IPCW weighting for censored medical data, Platt scaling & isotonic regression (AUC 0.94), SHAP explainability.
-  4. Real-Time AI Voice Receptionist: Speech-driven office assistant using SpeechRecognition, pyttsx3, and an OpenCV + dlib face-recognition layer.
-  5. Multi-Layer AI Cybersecurity System: Real-time threat detection (phishing 99.4% accuracy, CV deepfake anomaly detection).
-  6. FastAPI JWT & RBAC Auth Microservice: Dual-token rotation, Redis blacklisting, role-based access control.
-  7. Sentiment-Aware Hybrid Recommendation Engine: VADER sentiment analysis + TF-IDF content filtering + collaborative filtering.
-- Technical Skills: Python, C, C++, JavaScript, TypeScript, SQL, LangChain, LangGraph, Model Context Protocol (MCP), Multi-Agent Systems, RAG Pipelines, Scikit-learn, TensorFlow, LightGBM, NLP, FastAPI, React.js, Next.js, PostgreSQL, MongoDB, Redis, SQLite, Qdrant Vector DB, Docker, Git, OpenCV, dlib, Playwright.
-- Contact: manishraina2009@gmail.com, +91 6005001995, GitHub: github.com/manishraina0904, LinkedIn: linkedin.com/in/manish-raina-53278028b/
+  * Other: Web Scraping, Power BI, Speech Recognition & Synthesis, OpenCV, dlib, Playwright
+- Experience & Verified Certifications:
+  * Machine Learning Research Intern — NIT Delhi (Aug 2025 – Sept 2025): Researched and implemented supervised ML algorithms using Python, Scikit-learn, Pandas, and NumPy; conducted comparative performance analysis and prepared technical documentation. [Verified Certificate: https://drive.google.com/file/d/1pakLcO8sOsIdUXjiQE_s5NdITrOaMe3l/view?usp=sharing]
+  * Machine Learning & Web Development Intern — EISystems Technologies (Aug 2024 – Sept 2024): Worked on data preprocessing and ML model development for client projects, alongside front-end feature development using React.js. [Verified Certificate: https://drive.google.com/file/d/1wiUMfkrPU6F5Z7An14tbEeGEdogFOqlm/view?usp=sharing]
+  * Advanced Diploma in Software Technology (12 Months) — Supertech (India) Computer Education. [Verified Certificate: https://drive.google.com/file/d/1jK7erUVej53BwAVkic_3BzsDc3MVfMsv/view?usp=sharing]
+- Featured Production Projects:
+  1. Nexus AI OS v2.0 (Autonomous Multi-Agent Workspace & AI Orchestration Platform): Engineered a multi-agent orchestration kernel routing tasks across 12 specialized agents via a JSON-based DAG, supporting 12 task categories and 30+ sub-actions, with a custom MCP client integrating 6 MCP servers and 10 built-in tools. Achieved 100% pass rate on integration tests (4/4) and DAG workflows (6/6), with 96% task-step success (24/25); full 4-step workflows completed in 3.8–4.2 seconds.
+  2. AI Career Skill Intelligence Platform (Full-Stack + ML + Scraper): Architected a full-stack skill-gap platform (FastAPI, React, PostgreSQL) with 39 REST endpoints, parsing 55 resumes at 98.2% extraction accuracy and computing readiness scores in 65.3ms end-to-end. Processed 32,217 job listings across 3,947 companies, feature-engineering 94,766 skills and training a RandomForest skill-demand regressor (R² = 0.9998); generated readiness scores for 50+ candidates (avg 64.5%, top 92%).
+  3. Heart Disease Survival Prediction Framework: Built a survival prediction model (LightGBM + IPCW) on 897 patient records with 13 clinical features, handling 67.89% censored observations via inverse probability of censoring weighting. Achieved 91.89% mean cross-validation AUC (±1.37% across 5 folds, 75 tuning fit-runs); outperformed a Cox Proportional Hazards baseline by 15.46% at the 180-day horizon (ROC-AUC 0.8534 to 0.9026).
+  4. AI Voice Receptionist (Speech-to-Speech AI Assistant): Built a speech-to-speech voice assistant achieving 88% intent recognition accuracy across 50 test queries, with 1.2–1.6s speech-to-response latency and offline pyttsx3 TTS generating responses in 80–120ms. Integrated a real-time face-recognition layer (DeepFace, VGG-Face, OpenCV) achieving 91.7% accuracy across 60 live trials at ~450–650ms per inference frame, plus automated Gmail IMAP email briefing.
 
 Instructions:
 - Be concise, helpful, professional, and enthusiastic.
@@ -145,30 +135,30 @@ Instructions:
     const q = query.toLowerCase();
 
     if (q.includes("agent") || q.includes("mcp") || q.includes("langgraph") || q.includes("rag")) {
-      return `🤖 **AI Agents, MCP & Orchestration Competencies:**\n\n- **LangGraph & LangChain**: Multi-agent state machines, cyclical graphs, and agent routing.\n- **Model Context Protocol (MCP)**: Custom MCP clients with stdio JSON-RPC tool discovery and dynamic function calling.\n- **RAG & Vector Memory**: End-to-end RAG pipelines indexed via **Qdrant Vector DB**.\n- **Agentic Kernel (Nexus AI OS v2.0)**: Coordinates 12 specialized agents with planner, reflection, supervisor safety layers, and human-in-the-loop gates.`;
+      return `🤖 **AI Agents, MCP & Orchestration Competencies:**\n\n- **Nexus AI OS v2.0**: Orchestration kernel routing tasks across 12 specialized agents via JSON DAG with 100% test pass rate and 3.8–4.2s execution.\n- **Model Context Protocol (MCP)**: Custom MCP client integrating 6 MCP servers and 10 built-in tools over stdio JSON-RPC.\n- **LangGraph & LangChain**: Cyclic state machines, task decomposition, and supervisor safety layers.\n- **RAG & Vector Memory**: High-throughput semantic retrieval indexed with **Qdrant Vector DB**.`;
     }
 
     if (q.includes("project") || q.includes("work") || q.includes("nexus") || q.includes("career")) {
-      return `🚀 **Manish's Top Featured Projects:**\n\n1. **Nexus AI OS v2.0**: Autonomous multi-agent workspace routing 12 specialized agents via JSON DAG with planner/reflection/supervisor layers, custom MCP client (stdio JSON-RPC), and Qdrant RAG.\n2. **AI Career Skill Intelligence Platform**: Full-stack FastAPI + React + PostgreSQL platform with NLP resume parsing, embedding-based semantic matching, and web scrapers.\n3. **Heart Disease Survival Prediction Framework**: LightGBM survival modeling with IPCW weighting for censored clinical data & calibrated AUC 0.94.\n4. **AI Voice Receptionist**: Real-time speech assistant with SpeechRecognition, pyttsx3, and an OpenCV + dlib face-recognition layer.\n5. **AI Cybersecurity System**: Threat intelligence detecting phishing (99.4% accuracy) and CV deepfake anomalies.\n6. **FastAPI Auth & RBAC**: JWT dual-token rotation & granular RBAC security API.\n7. **Sentiment-Aware Recommendation**: NLP hybrid recommendation with VADER + TF-IDF.`;
+      return `🚀 **Manish's Top Featured Projects from New Resume:**\n\n1. **Nexus AI OS v2.0**: Autonomous multi-agent workspace routing 12 specialized agents via JSON DAG (100% DAG pass rate, 6 MCP servers, 10 tools, 3.8–4.2s workflows).\n2. **AI Career Skill Intelligence Platform**: Full-stack FastAPI + React + PostgreSQL with 39 REST endpoints, parsing 55 resumes at 98.2% accuracy in 65.3ms, and RandomForest regressor (R² = 0.9998) on 32k job postings.\n3. **Heart Disease Survival Prediction Framework**: LightGBM + IPCW survival model on 897 patients (67.89% censored data), achieving 91.89% mean CV-AUC (+15.46% over Cox PH baseline at 180 days).\n4. **AI Voice Receptionist**: Speech-to-speech assistant (88% intent accuracy, 1.2–1.6s latency, 80–120ms pyttsx3 TTS) with DeepFace/OpenCV face recognition (91.7% accuracy across 60 trials) and automated Gmail IMAP briefing.`;
     }
 
-    if (q.includes("nit") || q.includes("research") || q.includes("intern") || q.includes("experience")) {
-      return `🎓 **Work & Research Experience:**\n\n- **Machine Learning Research Intern — NIT Delhi (Aug 2025 – Sept 2025)**:\n  * Researched and implemented supervised ML algorithms using Python, Scikit-learn, Pandas, and NumPy.\n  * Conducted comparative performance analysis and prepared technical documentation of experimental results.\n- **Machine Learning & Web Development Intern — EISystems Technologies (Aug 2024 – Sept 2024)**:\n  * Worked on data preprocessing and ML model development for client projects, alongside front-end feature development using React.js.\n- **Advanced Diploma in Software Technology (12 Months)**: Supertech Computer Education.`;
+    if (q.includes("nit") || q.includes("research") || q.includes("intern") || q.includes("experience") || q.includes("cert")) {
+      return `🎓 **Work, Research & Verified Certifications:**\n\n- **Machine Learning Research Intern — NIT Delhi (Aug 2025 – Sept 2025)**:\n  * Researched and implemented supervised ML algorithms using Python, Scikit-learn, Pandas, and NumPy; conducted comparative performance analysis.\n  * [View Verified NIT Delhi Certificate](https://drive.google.com/file/d/1pakLcO8sOsIdUXjiQE_s5NdITrOaMe3l/view?usp=sharing)\n- **Machine Learning & Web Development Intern — EISystems Technologies (Aug 2024 – Sept 2024)**:\n  * Data preprocessing and ML model development for client projects with React.js frontend development.\n  * [View Verified EISystems Certificate](https://drive.google.com/file/d/1wiUMfkrPU6F5Z7An14tbEeGEdogFOqlm/view?usp=sharing)\n- **Advanced Diploma in Software Technology (12 Months)** — Supertech Computer Education:\n  * [View Verified Supertech Certificate](https://drive.google.com/file/d/1jK7erUVej53BwAVkic_3BzsDc3MVfMsv/view?usp=sharing)`;
     }
 
     if (q.includes("skill") || q.includes("stack") || q.includes("tech") || q.includes("language")) {
-      return `⚡ **Comprehensive Technical Competencies:**\n\n- **Languages**: Python, C, C++, JavaScript, SQL, TypeScript\n- **AI Agents & Orchestration**: LangChain, LangGraph, Model Context Protocol (MCP), Multi-Agent Systems, Function Calling, Prompt Engineering, RAG Pipelines\n- **ML & Model Training**: Scikit-learn, TensorFlow, LightGBM, NLP, Model Fine-Tuning, Embedding Semantic Search, Calibration & IPCW Weighting\n- **Web & Backend / APIs**: FastAPI, React.js, Next.js, REST APIs, WebSockets, JWT, RBAC, Middleware Validation\n- **Data & Infra**: PostgreSQL, MongoDB, Redis, SQLite, Qdrant Vector DB, Docker, Docker-compose, Git\n- **Vision & Tools**: OpenCV, dlib, SpeechRecognition, pyttsx3, Playwright, Web Scraping, Power BI`;
+      return `⚡ **Core Technical Competencies (From Resume):**\n\n- **Languages**: Python, C, C++, JavaScript, SQL, TypeScript\n- **AI Agents & Orchestration**: LangChain, LangGraph, Model Context Protocol (MCP), Multi-Agent Systems, Agentic Tool/Skill Design, Function Calling, Prompt Engineering, RAG Pipelines\n- **ML & Model Training**: Scikit-learn, TensorFlow, LightGBM, NLP, Model Training & Fine-Tuning, Embedding-based Semantic Search, Model Evaluation (AUC, CV, Calibration, IPCW Weighting)\n- **Web & Backend / APIs**: FastAPI, React.js, REST APIs, API Design & Integration, WebSockets, JWT Authentication, RBAC, Middleware Validation\n- **Data & Infra**: PostgreSQL, MongoDB, Redis, SQLite, Qdrant Vector DB, Docker, Docker-compose, Git\n- **Other**: Web Scraping, Power BI, Speech Recognition & Synthesis, OpenCV, dlib, Playwright`;
     }
 
     if (q.includes("contact") || q.includes("email") || q.includes("phone") || q.includes("hire")) {
-      return `📧 **Contact Manish Raina:**\n\n- **Email**: manishraina2009@gmail.com\n- **Phone**: +91 6005001995\n- **LinkedIn**: [linkedin.com/in/manish-raina-53278028b/](https://linkedin.com/in/manish-raina-53278028b/)\n- **GitHub**: [github.com/manishraina0904](https://github.com/manishraina0904)`;
+      return `📧 **Contact Manish Raina:**\n\n- **Email**: manishraina2009@gmail.com\n- **Phone**: +91 6005001995\n- **LinkedIn**: [linkedin.com/in/manish-raina-53278028b/](https://linkedin.com/in/manish-raina-53278028b/)\n- **GitHub**: [github.com/manishraina0904](https://github.com/manishraina0904)\n- **Portfolio**: [manuraina.vercel.app](https://manuraina.vercel.app/)`;
     }
 
     if (q.includes("education") || q.includes("college") || q.includes("piet")) {
-      return `🎓 **Education:**\n\n- **B.Tech, Computer Science Engineering (AI & ML)** — PIET, Haryana (Aug 2022 – Aug 2026)\n- **Senior Secondary (Class XII)** — Kotwal National Institute (Mar 2018 – Mar 2022)`;
+      return `🎓 **Education Credentials:**\n\n- **B.Tech, Computer Science Engineering (AI & ML)** — PIET, Haryana (Aug 2022 – Aug 2026)\n- **Senior Secondary (Class XII)** — Kotwal National Institute (Mar 2018 – Mar 2022)`;
     }
 
-    return `Manish Raina is an AI/ML Engineer & Full Stack Developer with hands-on experience across model development, backend engineering (FastAPI), multi-agent systems (LangGraph, MCP), and full-stack delivery (React/Next.js). Feel free to ask about his **AI agent architectures**, **projects**, **NIT Delhi research**, or **skills**!`;
+    return `Manish Raina is an **AI/ML Engineer** with hands-on, end-to-end project experience across model development, backend engineering (FastAPI), multi-agent systems (LangGraph, MCP), and full-stack delivery (React/Docker). Feel free to ask about his **AI agent orchestration**, **production ML projects**, **NIT Delhi research**, or **verified certifications**!`;
   };
 
   const formatText = (text: string) => {

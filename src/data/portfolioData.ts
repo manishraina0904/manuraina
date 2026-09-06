@@ -11,10 +11,18 @@ export interface ExperienceItem {
   role: string;
   organization: string;
   location?: string;
-  type: "Research" | "Internship" | "Hackathon" | "Education";
+  type: "Research" | "Internship" | "Hackathon" | "Education" | "Certification";
   description: string;
   highlights: string[];
   technologies: string[];
+  certificateUrl?: string;
+}
+
+export interface CertificationItem {
+  title: string;
+  issuer: string;
+  periodOrYear?: string;
+  certificateUrl: string;
 }
 
 export interface SkillCategory {
@@ -31,9 +39,9 @@ export interface SkillCategory {
 
 export const PERSONAL_INFO = {
   name: "Manish Raina",
-  title: "AI/ML Engineer & Full Stack Developer",
+  title: "AI/ML Engineer",
   profileSummary:
-    "AI/ML Engineer with hands-on, end-to-end project experience across model development, backend engineering, and full-stack delivery. Comfortable building with Python, Scikit-learn, TensorFlow, FastAPI/React, Docker, and RAG/MCP-based agent systems.",
+    "AI/ML Engineer with hands-on, end-to-end project experience across model development, backend engineering, and full-stack delivery. Proven track record shipping multi-agent orchestration systems, production ML pipelines, and full-stack apps with measurable accuracy, latency, and reliability gains using Python, Scikit-learn, TensorFlow, FastAPI, React, Docker, and RAG/MCP-based agent systems.",
   subtitle:
     "Building production AI agents, calibrated machine learning systems, and high-throughput full-stack architectures.",
   status: "OPEN TO AI/ML & PRODUCTION ENGINEERING ROLES",
@@ -42,24 +50,46 @@ export const PERSONAL_INFO = {
   phone: "+91 6005001995",
   github: "https://github.com/manishraina0904",
   linkedin: "https://linkedin.com/in/manish-raina-53278028b/",
+  portfolioUrl: "https://manuraina.vercel.app/",
   resumePath: "/assets/Manish-Raina-Resume.pdf",
   profileImage: "/assets/manish-profile.png",
   avatarFallback: "/assets/profile-fallback.svg",
   stats: [
-    { value: 5, suffix: "+", label: "Production AI & Full-Stack Projects" },
+    { value: 4, suffix: "+", label: "Production AI & Full-Stack Projects" },
     { value: 24, suffix: "+", label: "Core Competencies & Frameworks" },
     { value: 2, suffix: "", label: "NIT Delhi & Industry Internships" },
-    { value: 100, suffix: "%", label: "Engineering Rigor & Delivery" },
+    { value: 100, suffix: "%", label: "Integration & DAG Pass Rate" },
   ],
   roles: [
+    "AI/ML Engineer",
     "AI Agents & MCP Orchestration",
     "FastAPI & High-Throughput APIs",
     "LangGraph & RAG Pipelines",
     "Model Fine-Tuning & Calibration",
-    "Modern Full-Stack Applications",
     "Multi-Agent DAG Workflows",
   ],
 };
+
+export const CERTIFICATIONS: CertificationItem[] = [
+  {
+    title: "Machine Learning with Python",
+    issuer: "EISystems Technologies",
+    periodOrYear: "Internship Certificate",
+    certificateUrl: "https://drive.google.com/file/d/1wiUMfkrPU6F5Z7An14tbEeGEdogFOqlm/view?usp=sharing",
+  },
+  {
+    title: "Machine Learning Research Internship",
+    issuer: "NIT Delhi",
+    periodOrYear: "2025",
+    certificateUrl: "https://drive.google.com/file/d/1pakLcO8sOsIdUXjiQE_s5NdITrOaMe3l/view?usp=sharing",
+  },
+  {
+    title: "Advanced Diploma in Software Technology (12 Months)",
+    issuer: "Supertech (India) Computer Education",
+    periodOrYear: "12 Months Program",
+    certificateUrl: "https://drive.google.com/file/d/1jK7erUVej53BwAVkic_3BzsDc3MVfMsv/view?usp=sharing",
+  },
+];
 
 export const MANIFESTO_TEXT = {
   quoteLine1: "A beautifully crafted AI system feels different.",
@@ -117,13 +147,14 @@ export const TIMELINE_EXPERIENCE: ExperienceItem[] = [
     location: "New Delhi, India",
     type: "Research",
     description:
-      "Researched and implemented supervised machine learning algorithms using Python, Scikit-learn, Pandas, and NumPy; conducted comparative performance analysis and prepared technical documentation of experimental results.",
+      "Researched and implemented supervised machine learning algorithms using Python, Scikit-learn, Pandas, and NumPy; conducted comparative performance analysis and prepared technical documentation.",
     highlights: [
-      "Researched and implemented supervised machine learning algorithms with Scikit-learn and NumPy",
-      "Conducted comparative performance analysis and empirical benchmarking across model baselines",
-      "Prepared comprehensive technical documentation and experimental result logs for academic review",
+      "Researched and implemented supervised machine learning algorithms using Python, Scikit-learn, Pandas, and NumPy",
+      "Conducted comparative performance analysis and empirical benchmarking across baseline models",
+      "Prepared comprehensive technical documentation and experimental result logs",
     ],
-    technologies: ["Python", "Scikit-Learn", "Pandas", "NumPy", "ML Benchmarking", "Statistical Analysis"],
+    technologies: ["Python", "Scikit-Learn", "Pandas", "NumPy", "Comparative Analysis", "Technical Documentation"],
+    certificateUrl: "https://drive.google.com/file/d/1pakLcO8sOsIdUXjiQE_s5NdITrOaMe3l/view?usp=sharing",
   },
   {
     period: "Aug 2024 – Sept 2024",
@@ -134,24 +165,25 @@ export const TIMELINE_EXPERIENCE: ExperienceItem[] = [
     description:
       "Worked on data preprocessing and ML model development for client projects, alongside front-end feature development using React.js.",
     highlights: [
-      "Engineered end-to-end data preprocessing pipelines and feature engineering modules",
-      "Trained supervised machine learning models tailored for client requirements",
-      "Developed responsive frontend dashboard features and telemetry views using React.js",
+      "Worked on end-to-end data preprocessing and ML model development for client projects",
+      "Engineered front-end feature development and interactive UI dashboards using React.js",
+      "Integrated machine learning inferences with responsive front-end applications",
     ],
     technologies: ["Python", "Scikit-Learn", "React.js", "Data Preprocessing", "Web Development"],
+    certificateUrl: "https://drive.google.com/file/d/1wiUMfkrPU6F5Z7An14tbEeGEdogFOqlm/view?usp=sharing",
   },
   {
     period: "Aug 2022 – Aug 2026",
-    role: "B.Tech in Computer Science Engineering (AI & ML)",
-    organization: "Panipat Institute of Engineering and Technology (PIET)",
+    role: "B.Tech, Computer Science Engineering (AI & ML)",
+    organization: "PIET, Haryana (Panipat Institute of Engineering & Technology)",
     location: "Haryana, India",
     type: "Education",
     description:
       "4-year undergraduate engineering degree specializing in Artificial Intelligence, Machine Learning, Multi-Agent Systems, Data Structures, and Distributed Backend Architecture.",
     highlights: [
-      "Specialized in AI/ML architectures, Deep Learning, and Computer Vision",
-      "Architected multi-agent orchestrator kernels, MCP protocols, and full-stack platforms",
-      "Built capstone projects in clinical survival modeling and intelligent career scraping",
+      "Specialized in AI/ML architectures, Deep Learning, and Multi-Agent Systems",
+      "Architected multi-agent orchestrator kernels, custom MCP clients, and full-stack platforms",
+      "Built production systems in clinical survival modeling and intelligent career skill analytics",
     ],
     technologies: ["AI & ML", "Data Structures & Algorithms", "Python", "FastAPI", "React", "DBMS"],
   },
@@ -165,7 +197,7 @@ export const TIMELINE_EXPERIENCE: ExperienceItem[] = [
       "Academic foundation in physical sciences, analytical problem solving, mathematics, and introductory computing.",
     highlights: [
       "Strong analytical foundation in Mathematics and Physical Sciences",
-      "Early self-directed explorations in procedural C and Python programming",
+      "Self-directed explorations in procedural C and Python programming",
     ],
     technologies: ["Mathematics", "Computer Science", "Physics"],
   },
@@ -174,14 +206,15 @@ export const TIMELINE_EXPERIENCE: ExperienceItem[] = [
     role: "Advanced Diploma in Software Technology",
     organization: "Supertech (India) Computer Education",
     location: "Jammu & Kashmir, India",
-    type: "Education",
+    type: "Certification",
     description:
       "Comprehensive 12-month program strengthening software fundamentals, C, C++, and structured database design.",
     highlights: [
-      "Deep foundations in C, C++, algorithms, and modular software architectures",
+      "Deep foundations in C, C++, data structures, and modular software architectures",
       "Relational database design and structured SQL querying",
     ],
     technologies: ["C", "C++", "SQL", "Software Architecture"],
+    certificateUrl: "https://drive.google.com/file/d/1jK7erUVej53BwAVkic_3BzsDc3MVfMsv/view?usp=sharing",
   },
 ];
 
@@ -203,13 +236,13 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
   },
   {
     title: "ML & Model Training",
-    subtitle: "Neural networks, fine-tuning & evaluation",
+    subtitle: "LightGBM, fine-tuning, evaluation & calibration",
     icon: "Cpu",
     skills: [
       { name: "Scikit-learn", icon: "/assets/skill-scikit.svg", category: "ML" },
       { name: "TensorFlow", icon: "/assets/skill-tensorflow.svg", category: "ML" },
       { name: "LightGBM", icon: "/assets/skill-scikit.svg", category: "ML" },
-      { name: "NLP & Tokenization", icon: "/assets/skill-nlp.svg", category: "ML" },
+      { name: "NLP", icon: "/assets/skill-nlp.svg", category: "ML" },
       { name: "Model Training & Fine-Tuning", icon: "/assets/skill-tensorflow.svg", category: "ML" },
       { name: "Embedding-based Semantic Search", icon: "/assets/space-signal.svg", category: "ML" },
       { name: "Model Evaluation (AUC, CV)", icon: "/assets/skill-scikit.svg", category: "ML" },
@@ -218,22 +251,22 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
   },
   {
     title: "Web & Backend / APIs",
-    subtitle: "FastAPI, React.js, security & WebSockets",
+    subtitle: "FastAPI, React.js, WebSockets & Security",
     icon: "Server",
     skills: [
       { name: "FastAPI", icon: "/assets/skill-fastapi.svg", category: "Backend" },
       { name: "React.js", icon: "/assets/skill-react.svg", category: "Frontend" },
-      { name: "REST APIs & Design", icon: "/assets/skill-fastapi.svg", category: "Backend" },
-      { name: "WebSockets Telemetry", icon: "/assets/space-signal.svg", category: "Backend" },
+      { name: "REST APIs", icon: "/assets/skill-fastapi.svg", category: "Backend" },
+      { name: "API Design & Integration", icon: "/assets/skill-fastapi.svg", category: "Backend" },
+      { name: "WebSockets", icon: "/assets/space-signal.svg", category: "Backend" },
       { name: "JWT Authentication", icon: "/assets/skill-fastapi.svg", category: "Security" },
       { name: "RBAC (Access Control)", icon: "/assets/skill-fastapi.svg", category: "Security" },
       { name: "Middleware Validation", icon: "/assets/skill-python.svg", category: "Backend" },
-      { name: "Next.js & Tailwind CSS", icon: "/assets/skill-react.svg", category: "Frontend" },
     ],
   },
   {
     title: "Data & Infrastructure",
-    subtitle: "Databases, vector stores & DevOps",
+    subtitle: "Databases, vector stores & containerization",
     icon: "Database",
     skills: [
       { name: "PostgreSQL", icon: "/assets/skill-postgresql.svg", category: "DB" },
@@ -241,24 +274,35 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
       { name: "Redis", icon: "/assets/skill-mongodb.svg", category: "Cache" },
       { name: "SQLite", icon: "/assets/skill-sql.svg", category: "DB" },
       { name: "Qdrant Vector DB", icon: "/assets/space-signal.svg", category: "VectorDB" },
-      { name: "Docker & Docker-compose", icon: "/assets/skill-docker.svg", category: "DevOps" },
-      { name: "Git & GitHub", icon: "/assets/skill-git.svg", category: "DevOps" },
+      { name: "Docker", icon: "/assets/skill-docker.svg", category: "DevOps" },
+      { name: "Docker-compose", icon: "/assets/skill-docker.svg", category: "DevOps" },
+      { name: "Git", icon: "/assets/skill-git.svg", category: "DevOps" },
     ],
   },
   {
-    title: "Languages & Vision Tools",
-    subtitle: "Core code, vision, speech & scraping",
+    title: "Languages",
+    subtitle: "Core programming & query languages",
     icon: "Terminal",
     skills: [
       { name: "Python", icon: "/assets/skill-python.svg", category: "Language" },
-      { name: "TypeScript", icon: "/assets/skill-javascript.svg", category: "Language" },
-      { name: "JavaScript (ES6+)", icon: "/assets/skill-javascript.svg", category: "Language" },
-      { name: "C & C++", icon: "/assets/skill-cpp.svg", category: "Language" },
+      { name: "C", icon: "/assets/skill-c.svg", category: "Language" },
+      { name: "C++", icon: "/assets/skill-cpp.svg", category: "Language" },
+      { name: "JavaScript", icon: "/assets/skill-javascript.svg", category: "Language" },
       { name: "SQL", icon: "/assets/skill-sql.svg", category: "Language" },
-      { name: "OpenCV & dlib", icon: "/assets/skill-opencv.svg", category: "Vision" },
-      { name: "SpeechRecognition & pyttsx3", icon: "/assets/space-signal.svg", category: "Speech" },
-      { name: "Web Scraping & Playwright", icon: "/assets/skill-pandas.svg", category: "Scraping" },
+      { name: "TypeScript", icon: "/assets/skill-javascript.svg", category: "Language" },
+    ],
+  },
+  {
+    title: "Specialized Tools & Vision",
+    subtitle: "Scraping, speech, computer vision & analytics",
+    icon: "Cpu",
+    skills: [
+      { name: "Web Scraping", icon: "/assets/skill-pandas.svg", category: "Scraping" },
+      { name: "Playwright", icon: "/assets/skill-pandas.svg", category: "Scraping" },
       { name: "Power BI", icon: "/assets/skill-powerbi.svg", category: "Analytics" },
+      { name: "Speech Recognition & Synthesis", icon: "/assets/space-signal.svg", category: "Speech" },
+      { name: "OpenCV", icon: "/assets/skill-opencv.svg", category: "Vision" },
+      { name: "dlib", icon: "/assets/skill-opencv.svg", category: "Vision" },
     ],
   },
 ];
