@@ -141,32 +141,32 @@ export const CORE_PILLARS = [
 
 export const TIMELINE_EXPERIENCE: ExperienceItem[] = [
   {
-    period: "Aug 2025 – Sept 2025",
+    period: "July 2025 – Sept 2025",
     role: "Machine Learning Research Intern",
     organization: "NIT Delhi (National Institute of Technology)",
     location: "New Delhi, India",
     type: "Research",
     description:
-      "Researched and implemented supervised machine learning algorithms using Python, Scikit-learn, Pandas, and NumPy; conducted comparative performance analysis and prepared technical documentation.",
+      "Collaborated with a 3-person team to build a survival prediction model (LightGBM + IPCW) for Heart Disease outcomes, achieving 91.89% cross-validation AUC; conducted comparative performance analysis against a Cox Proportional Hazards baseline.",
     highlights: [
-      "Researched and implemented supervised machine learning algorithms using Python, Scikit-learn, Pandas, and NumPy",
-      "Conducted comparative performance analysis and empirical benchmarking across baseline models",
-      "Prepared comprehensive technical documentation and experimental result logs",
+      "Collaborated with a 3-person team to build a survival prediction model (LightGBM + IPCW) for Heart Disease outcomes",
+      "Achieved 91.89% cross-validation AUC with IPCW handling right-censored data",
+      "Conducted comparative performance analysis against a Cox Proportional Hazards baseline",
     ],
-    technologies: ["Python", "Scikit-Learn", "Pandas", "NumPy", "Comparative Analysis", "Technical Documentation"],
+    technologies: ["Python", "LightGBM", "IPCW Weighting", "Scikit-Learn", "Survival Analysis", "Cox Proportional Hazards"],
     certificateUrl: "https://drive.google.com/file/d/1pakLcO8sOsIdUXjiQE_s5NdITrOaMe3l/view?usp=sharing",
   },
   {
-    period: "Aug 2024 – Sept 2024",
+    period: "June 2024 – Aug 2024",
     role: "Machine Learning & Web Development Intern",
     organization: "EISystems Technologies",
     location: "Industry Internship",
     type: "Internship",
     description:
-      "Worked on data preprocessing and ML model development for client projects, alongside front-end feature development using React.js.",
+      "Contributed to data preprocessing and machine learning model development for live client projects, while building front-end features in React.js to support delivery.",
     highlights: [
-      "Worked on end-to-end data preprocessing and ML model development for client projects",
-      "Engineered front-end feature development and interactive UI dashboards using React.js",
+      "Contributed to data preprocessing and machine learning model development for live client projects",
+      "Engineered front-end feature development and interactive UI dashboards in React.js to support delivery",
       "Integrated machine learning inferences with responsive front-end applications",
     ],
     technologies: ["Python", "Scikit-Learn", "React.js", "Data Preprocessing", "Web Development"],
