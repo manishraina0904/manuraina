@@ -6,10 +6,12 @@
   :root {
     --background: #05030A;
     --foreground: #F4F1FA;
+    --accent-violet: #8B5CF6;
+    --accent-purple: #A855F7;
   }
 
   * {
-    border-color: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.07);
   }
 
   html {
@@ -26,15 +28,15 @@
   }
 
   ::selection {
-    background: rgba(59, 130, 246, 0.25);
+    background: rgba(139, 92, 246, 0.28);
     color: #F4F1FA;
   }
 }
 
-/* CUSTOM ULTRA-SLIM SCROLLBAR */
+/* ULTRA-SLIM SCROLLBAR — VIOLET */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 5px;
+  height: 5px;
 }
 
 ::-webkit-scrollbar-track {
@@ -42,12 +44,12 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.14);
+  background: rgba(139, 92, 246, 0.30);
   border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(59, 130, 246, 0.4);
+  background: rgba(168, 85, 247, 0.55);
 }
 
 .custom-scrollbar::-webkit-scrollbar {
@@ -55,7 +57,7 @@
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(139, 92, 246, 0.25);
 }
 
 .no-scrollbar::-webkit-scrollbar {
@@ -81,17 +83,93 @@
   animation: marquee 35s linear infinite;
 }
 
-/* AMBIENT MESH GRADIENT */
+/* AMBIENT VIOLET MESH GRADIENT */
 .bg-mesh {
-  background-image: 
-    radial-gradient(at 10% 20%, rgba(59, 130, 246, 0.04) 0px, transparent 50%),
-    radial-gradient(at 90% 80%, rgba(29, 78, 216, 0.03) 0px, transparent 50%);
+  background-image:
+    radial-gradient(at 15% 20%, rgba(139, 92, 246, 0.07) 0px, transparent 55%),
+    radial-gradient(at 85% 75%, rgba(109, 40, 217, 0.05) 0px, transparent 50%),
+    radial-gradient(at 50% 50%, rgba(168, 85, 247, 0.03) 0px, transparent 60%);
 }
 
 /* MASK GRADIENTS */
 .mask-gradient {
   mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
   -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+/* PERSPECTIVE TILT CARD */
+.perspective-card {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.perspective-card:hover .tilt-inner {
+  transform: rotateX(4deg) rotateY(-4deg) translateZ(10px);
+}
+
+.tilt-inner {
+  transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  transform-style: preserve-3d;
+}
+
+/* VIOLET RAY GLOW — for hero section */
+.violet-ray {
+  background: radial-gradient(ellipse 55% 65% at 50% 0%, rgba(139, 92, 246, 0.25) 0%, rgba(109, 40, 217, 0.10) 45%, transparent 80%);
+  pointer-events: none;
+}
+
+/* WIREFRAME GRID for footer */
+.wireframe-grid {
+  background-image:
+    linear-gradient(rgba(139, 92, 246, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(139, 92, 246, 0.08) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: gridPan 18s linear infinite;
+}
+
+@keyframes gridPan {
+  0% { background-position: 0 0; }
+  100% { background-position: 50px 50px; }
+}
+
+/* FLOATING CARDS */
+@keyframes floatCard {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-8px) rotate(0.5deg); }
+  66% { transform: translateY(-4px) rotate(-0.3deg); }
+}
+
+.animate-float {
+  animation: floatCard 7s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: floatCard 7s ease-in-out 2.5s infinite;
+}
+
+/* SHIMMER EFFECT */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.shimmer-text {
+  background: linear-gradient(90deg, #8B5CF6 0%, #C4B5FD 40%, #8B5CF6 60%, #6D28D9 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s linear infinite;
+}
+
+/* GLOW PULSE */
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(139, 92, 246, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(168, 85, 247, 0.5), 0 0 60px rgba(139, 92, 246, 0.2); }
+}
+
+.glow-pulse {
+  animation: glowPulse 3s ease-in-out infinite;
 }
 
 /* REDUCED MOTION SAFEGUARDS */

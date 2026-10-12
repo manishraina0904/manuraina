@@ -19,13 +19,13 @@ export default function ExperienceTimeline() {
   const getIcon = (type: ExperienceItem["type"]) => {
     switch (type) {
       case "Research":
-        return <Award className="w-4 h-4 text-accent-cyan" />;
+        return <Award className="w-4 h-4 text-accent-violet" />;
       case "Education":
-        return <GraduationCap className="w-4 h-4 text-accent-violet" />;
+        return <GraduationCap className="w-4 h-4 text-accent-purple" />;
       case "Hackathon":
         return <Trophy className="w-4 h-4 text-accent-emerald" />;
       case "Internship":
-        return <Briefcase className="w-4 h-4 text-accent-cyan" />;
+        return <Briefcase className="w-4 h-4 text-accent-violet" />;
       case "Certification":
         return <Trophy className="w-4 h-4 text-accent-emerald" />;
       default:
@@ -43,7 +43,7 @@ export default function ExperienceTimeline() {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div>
             <div className="flex items-center gap-2 mb-3">
-              <span className="w-2 h-2 rounded-full bg-accent-cyan" />
+              <span className="w-2 h-2 rounded-full bg-accent-violet" />
               <span className="font-mono text-xs uppercase tracking-widest text-muted">
                 03 // Career Milestones &amp; Education
               </span>
@@ -82,8 +82,8 @@ export default function ExperienceTimeline() {
             <TextReveal key={i} delay={i * 0.08}>
               <div className="relative group">
                 {/* Timeline Dot Indicator */}
-                <div className="absolute -left-[31px] sm:-left-[47px] top-1.5 w-6 h-6 rounded-full bg-surface-elevated border border-white/20 flex items-center justify-center group-hover:border-accent-cyan group-hover:scale-110 transition-all duration-300 shadow-[0_0_12px_rgba(0,0,0,0.8)]">
-                  <div className="w-2 h-2 rounded-full bg-accent-cyan group-hover:shadow-[0_0_8px_#A855F7] transition-shadow" />
+                <div className="absolute -left-[31px] sm:-left-[47px] top-1.5 w-6 h-6 rounded-full bg-surface-elevated border border-white/20 flex items-center justify-center group-hover:border-accent-violet group-hover:scale-110 transition-all duration-300 shadow-[0_0_12px_rgba(0,0,0,0.8)]">
+                  <div className="w-2 h-2 rounded-full bg-accent-violet group-hover:shadow-[0_0_8px_#8B5CF6] transition-shadow" />
                 </div>
 
                 {/* Content Card */}
@@ -94,7 +94,7 @@ export default function ExperienceTimeline() {
                       <span className="p-1.5 rounded-lg bg-white/5 border border-white/10">
                         {getIcon(item.type)}
                       </span>
-                      <span className="font-mono text-xs font-semibold text-accent-cyan uppercase tracking-wider">
+                      <span className="font-mono text-xs font-semibold text-accent-violet uppercase tracking-wider">
                         {item.type}
                       </span>
                     </div>
@@ -126,7 +126,7 @@ export default function ExperienceTimeline() {
                         href={item.certificateUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-accent-cyan/10 hover:bg-accent-cyan/20 border border-accent-cyan/30 text-accent-cyan font-mono text-xs transition-all group/cert"
+                        className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-accent-violet/10 hover:bg-accent-violet/20 border border-accent-violet/30 text-accent-violet font-mono text-xs transition-all group/cert"
                       >
                         <ExternalLink className="w-3.5 h-3.5 group-hover/cert:translate-x-0.5 group-hover/cert:-translate-y-0.5 transition-transform" />
                         <span>View Verified Certificate</span>
@@ -143,7 +143,7 @@ export default function ExperienceTimeline() {
                   <div className="space-y-2 mb-6">
                     {item.highlights.map((point, idx) => (
                       <div key={idx} className="flex items-start gap-2.5 text-xs text-foreground/85 leading-relaxed">
-                        <CheckCircle className="w-3.5 h-3.5 text-accent-cyan shrink-0 mt-0.5" />
+                        <CheckCircle className="w-3.5 h-3.5 text-accent-violet shrink-0 mt-0.5" />
                         <span>{point}</span>
                       </div>
                     ))}

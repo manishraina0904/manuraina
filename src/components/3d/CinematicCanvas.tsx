@@ -51,11 +51,11 @@ export default function CinematicCanvas({ onDragStateChange }: CinematicCanvasPr
     // Inner Glowing Core
     const innerGeo = new THREE.IcosahedronGeometry(1.2, 2);
     const innerMat = new THREE.MeshStandardMaterial({
-      color: 0x3b82f6, // Vibrant Electric Blue
-      emissive: 0x2563eb, // Radiant luminescent blue emissive
-      emissiveIntensity: 0.88, // Elevated celestial planet glow
-      roughness: 0.18,
-      metalness: 0.82,
+      color: 0x8b5cf6, // Vibrant Violet
+      emissive: 0x6d28d9, // Deep violet emissive
+      emissiveIntensity: 0.92,
+      roughness: 0.15,
+      metalness: 0.85,
       transparent: true,
       opacity: 0.96,
     });
@@ -65,9 +65,9 @@ export default function CinematicCanvas({ onDragStateChange }: CinematicCanvasPr
     // Atmospheric Planetary Glow Halo (soft additive celestial limb glow)
     const haloGeo = new THREE.SphereGeometry(1.36, 32, 32);
     const haloMat = new THREE.MeshBasicMaterial({
-      color: 0x3b82f6,
+      color: 0x8b5cf6,
       transparent: true,
-      opacity: 0.32,
+      opacity: 0.35,
       blending: THREE.AdditiveBlending,
       side: THREE.BackSide,
     });
@@ -77,7 +77,7 @@ export default function CinematicCanvas({ onDragStateChange }: CinematicCanvasPr
     // Secondary Outer Ethereal Nebula Glow
     const outerHaloGeo = new THREE.SphereGeometry(1.72, 32, 32);
     const outerHaloMat = new THREE.MeshBasicMaterial({
-      color: 0x1d4ed8,
+      color: 0xa855f7,
       transparent: true,
       opacity: 0.18,
       blending: THREE.AdditiveBlending,
@@ -89,25 +89,25 @@ export default function CinematicCanvas({ onDragStateChange }: CinematicCanvasPr
     // Outer Faceted Polyhedral Wireframe Cage
     const outerGeo = new THREE.IcosahedronGeometry(1.9, 1);
     const outerMat = new THREE.MeshStandardMaterial({
-      color: 0x60a5fa, // Sky/Ice Blue
-      emissive: 0x1d4ed8, // Luminous cobalt wireframe emissive
+      color: 0xc4b5fd, // Light violet
+      emissive: 0x6d28d9, // Deep violet emissive
       wireframe: true,
       transparent: true,
-      opacity: 0.42, // Distinct wireframe facets catching the glow
-      roughness: 0.35,
-      metalness: 0.85,
+      opacity: 0.40,
+      roughness: 0.30,
+      metalness: 0.88,
     });
     const outerMesh = new THREE.Mesh(outerGeo, outerMat);
     rootGroup.add(outerMesh);
 
-    // Gyroscopic Orbital Rings - Glowing planetary rings
+    // Gyroscopic Orbital Rings - Glowing violet planetary rings
     const ringMat1 = new THREE.MeshStandardMaterial({
-      color: 0x3b82f6,
-      emissive: 0x1d4ed8,
-      metalness: 0.8,
-      roughness: 0.25,
+      color: 0x8b5cf6,
+      emissive: 0x6d28d9,
+      metalness: 0.85,
+      roughness: 0.20,
       transparent: true,
-      opacity: 0.52,
+      opacity: 0.55,
       side: THREE.DoubleSide,
     });
     const ring1 = new THREE.Mesh(new THREE.TorusGeometry(2.55, 0.015, 16, 100), ringMat1);
@@ -115,12 +115,12 @@ export default function CinematicCanvas({ onDragStateChange }: CinematicCanvasPr
     rootGroup.add(ring1);
 
     const ringMat2 = new THREE.MeshStandardMaterial({
-      color: 0x2563eb,
-      emissive: 0x1e40af,
-      metalness: 0.8,
-      roughness: 0.25,
+      color: 0xa855f7,
+      emissive: 0x7e22ce,
+      metalness: 0.85,
+      roughness: 0.20,
       transparent: true,
-      opacity: 0.40,
+      opacity: 0.38,
       side: THREE.DoubleSide,
     });
     const ring2 = new THREE.Mesh(new THREE.TorusGeometry(3.05, 0.013, 16, 100), ringMat2);
@@ -130,7 +130,7 @@ export default function CinematicCanvas({ onDragStateChange }: CinematicCanvasPr
 
     const ring3 = new THREE.Mesh(
       new THREE.TorusGeometry(3.55, 0.009, 16, 100),
-      new THREE.MeshBasicMaterial({ color: 0xbae6fd, transparent: true, opacity: 0.22 })
+      new THREE.MeshBasicMaterial({ color: 0xddd6fe, transparent: true, opacity: 0.20 })
     );
     ring3.rotation.z = Math.PI / 2.5;
     rootGroup.add(ring3);
@@ -140,9 +140,9 @@ export default function CinematicCanvas({ onDragStateChange }: CinematicCanvasPr
     const particlePositions = new Float32Array(particleCount * 3);
     const particleColors = new Float32Array(particleCount * 3);
 
-    const cBlue = new THREE.Color(0x3b82f6);
-    const cDeep = new THREE.Color(0x1d4ed8);
-    const cWhite = new THREE.Color(0xdbeafe);
+    const cBlue = new THREE.Color(0x8b5cf6);
+    const cDeep = new THREE.Color(0x6d28d9);
+    const cWhite = new THREE.Color(0xede9fe);
 
     for (let i = 0; i < particleCount; i++) {
       const radius = 2.2 + Math.random() * 4.2;
@@ -178,15 +178,15 @@ export default function CinematicCanvas({ onDragStateChange }: CinematicCanvasPr
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.65);
     scene.add(ambientLight);
 
-    const lightBlue = new THREE.PointLight(0x3b82f6, 2.8, 25);
-    lightBlue.position.set(5, 4, 6);
-    scene.add(lightBlue);
+    const lightViolet = new THREE.PointLight(0x8b5cf6, 3.0, 25);
+    lightViolet.position.set(5, 4, 6);
+    scene.add(lightViolet);
 
-    const lightDeep = new THREE.PointLight(0x1d4ed8, 1.8, 25);
+    const lightDeep = new THREE.PointLight(0x6d28d9, 2.0, 25);
     lightDeep.position.set(-5, -4, -4);
     scene.add(lightDeep);
 
-    const centerGlow = new THREE.PointLight(0x60a5fa, 2.6, 14);
+    const centerGlow = new THREE.PointLight(0xa855f7, 2.8, 14);
     centerGlow.position.set(0, 0, 0);
     scene.add(centerGlow);
 
@@ -231,70 +231,30 @@ export default function CinematicCanvas({ onDragStateChange }: CinematicCanvasPr
           const p = self.progress;
           scrollObj.progress = p;
 
-          // ACT I -> ACT II (0.0 -> 0.20): Hero to Manifesto
-          // Camera slowly orbits up and to the right, core expands
+          // Hero act (0.0 -> 0.15): Full visibility and gentle floating
+          // Beyond Hero (p > 0.15): Canvas fades out cleanly so that cards,
+          // retro monitor, calendar, and 3D pass are crisp and unobstructed!
+          if (containerRef.current) {
+            if (p < 0.15) {
+              containerRef.current.style.opacity = "1";
+            } else if (p < 0.25) {
+              const fade = 1 - (p - 0.15) / 0.10;
+              containerRef.current.style.opacity = String(Math.max(0, fade));
+            } else {
+              containerRef.current.style.opacity = "0";
+            }
+          }
+
           if (p <= 0.2) {
             const t = p / 0.2;
-            scrollObj.camX = gsap.utils.interpolate(0, 2.5, t);
-            scrollObj.camY = gsap.utils.interpolate(0, 1.2, t);
-            scrollObj.camZ = gsap.utils.interpolate(8.2, 6.8, t);
-            scrollObj.rootX = gsap.utils.interpolate(0, 0.4, t);
-            scrollObj.rootY = gsap.utils.interpolate(0, 1.2, t);
-            scrollObj.rootScale = gsap.utils.interpolate(1, 1.15, t);
-            scrollObj.coreExpand = gsap.utils.interpolate(1, 1.3, t);
-            scrollObj.lookAtY = gsap.utils.interpolate(0, 0.3, t);
-          }
-          // ACT II -> ACT III (0.20 -> 0.45): Manifesto to Projects Gallery
-          // Camera dollies left, core sits on the left as project showcases scroll horizontally
-          else if (p <= 0.45) {
-            const t = (p - 0.2) / 0.25;
-            scrollObj.camX = gsap.utils.interpolate(2.5, -3.2, t);
-            scrollObj.camY = gsap.utils.interpolate(1.2, -0.5, t);
-            scrollObj.camZ = gsap.utils.interpolate(6.5, 7.8, t);
-            scrollObj.rootX = gsap.utils.interpolate(0.4, -0.3, t);
-            scrollObj.rootY = gsap.utils.interpolate(1.2, 2.8, t);
-            scrollObj.rootScale = gsap.utils.interpolate(1.15, 0.85, t);
-            scrollObj.coreExpand = gsap.utils.interpolate(1.3, 1.1, t);
-            scrollObj.lookAtY = gsap.utils.interpolate(0.3, -0.2, t);
-          }
-          // ACT III -> ACT IV (0.45 -> 0.70): Projects to Skills Matrix
-          // Camera rises upward, overlooking an expanded constellation ring
-          else if (p <= 0.7) {
-            const t = (p - 0.45) / 0.25;
-            scrollObj.camX = gsap.utils.interpolate(-3.2, 0, t);
-            scrollObj.camY = gsap.utils.interpolate(-0.5, 3.0, t);
-            scrollObj.camZ = gsap.utils.interpolate(7.8, 6.0, t);
-            scrollObj.rootX = gsap.utils.interpolate(-0.3, 0.8, t);
-            scrollObj.rootY = gsap.utils.interpolate(2.8, 4.5, t);
-            scrollObj.rootScale = gsap.utils.interpolate(0.85, 1.25, t);
-            scrollObj.coreExpand = gsap.utils.interpolate(1.1, 1.6, t);
-            scrollObj.lookAtY = gsap.utils.interpolate(-0.2, 0, t);
-          }
-          // ACT IV -> ACT V (0.70 -> 0.88): Skills to Experience Timeline
-          // Camera descends through a light conduit
-          else if (p <= 0.88) {
-            const t = (p - 0.7) / 0.18;
-            scrollObj.camX = gsap.utils.interpolate(0, 2.8, t);
-            scrollObj.camY = gsap.utils.interpolate(3.0, -1.5, t);
-            scrollObj.camZ = gsap.utils.interpolate(6.0, 7.2, t);
-            scrollObj.rootX = gsap.utils.interpolate(0.8, -0.4, t);
-            scrollObj.rootY = gsap.utils.interpolate(4.5, 6.0, t);
-            scrollObj.rootScale = gsap.utils.interpolate(1.25, 0.9, t);
-            scrollObj.coreExpand = gsap.utils.interpolate(1.6, 1.0, t);
-            scrollObj.lookAtY = gsap.utils.interpolate(0, -0.5, t);
-          }
-          // ACT V -> ACT VI (0.88 -> 1.0): Timeline to Contact / Finale
-          // Reconverges into a centered glowing beacon
-          else {
-            const t = (p - 0.88) / 0.12;
-            scrollObj.camX = gsap.utils.interpolate(2.8, 0, t);
-            scrollObj.camY = gsap.utils.interpolate(-1.5, 0, t);
-            scrollObj.camZ = gsap.utils.interpolate(7.2, 6.2, t);
-            scrollObj.rootX = gsap.utils.interpolate(-0.4, 0.2, t);
-            scrollObj.rootY = gsap.utils.interpolate(6.0, 7.5, t);
-            scrollObj.rootScale = gsap.utils.interpolate(0.9, 1.1, t);
-            scrollObj.coreExpand = gsap.utils.interpolate(1.0, 1.2, t);
-            scrollObj.lookAtY = gsap.utils.interpolate(-0.5, 0, t);
+            scrollObj.camX = gsap.utils.interpolate(0, 1.5, t);
+            scrollObj.camY = gsap.utils.interpolate(0, 0.8, t);
+            scrollObj.camZ = gsap.utils.interpolate(8.2, 7.2, t);
+            scrollObj.rootX = gsap.utils.interpolate(0, 0.3, t);
+            scrollObj.rootY = gsap.utils.interpolate(0, 0.8, t);
+            scrollObj.rootScale = gsap.utils.interpolate(0.9, 0.7, t);
+            scrollObj.coreExpand = gsap.utils.interpolate(1, 0.8, t);
+            scrollObj.lookAtY = gsap.utils.interpolate(0, 0.2, t);
           }
         },
       });
@@ -317,33 +277,33 @@ export default function CinematicCanvas({ onDragStateChange }: CinematicCanvasPr
       animId = requestAnimationFrame(renderLoop);
       const elapsedTime = clock.getElapsedTime();
 
-      // Idle auto-rotation + scroll interpolation
-      const baseRotY = elapsedTime * 0.15;
-      const baseRotX = Math.sin(elapsedTime * 0.2) * 0.08;
+      // Idle auto-rotation
+      const baseRotY = elapsedTime * 0.12;
+      const baseRotX = Math.sin(elapsedTime * 0.2) * 0.05;
 
       rootGroup.position.set(0, 0, 0);
       rootGroup.rotation.x = scrollObj.rootX + baseRotX;
       rootGroup.rotation.y = scrollObj.rootY + baseRotY;
-      rootGroup.scale.setScalar(scrollObj.rootScale);
+      rootGroup.scale.setScalar(scrollObj.rootScale * 0.85);
 
-      // Core scale pulsation & expansion
-      const pulse = Math.sin(elapsedTime * 1.8) * 0.04;
+      // Core scale pulsation
+      const pulse = Math.sin(elapsedTime * 1.8) * 0.03;
       innerMesh.scale.setScalar(scrollObj.coreExpand + pulse);
-      haloMesh.scale.setScalar(scrollObj.coreExpand + pulse * 1.25);
-      outerHaloMesh.scale.setScalar(scrollObj.coreExpand + pulse * 0.9);
-      outerMesh.scale.setScalar(1 + (scrollObj.coreExpand - 1) * 0.5);
+      haloMesh.scale.setScalar(scrollObj.coreExpand + pulse * 1.2);
+      outerHaloMesh.scale.setScalar(scrollObj.coreExpand + pulse * 0.8);
+      outerMesh.scale.setScalar(1 + (scrollObj.coreExpand - 1) * 0.4);
 
       // Orbital rotations
-      ring1.rotation.z = elapsedTime * 0.35;
-      ring2.rotation.z = -elapsedTime * 0.25;
-      ring3.rotation.x = elapsedTime * 0.18;
+      ring1.rotation.z = elapsedTime * 0.25;
+      ring2.rotation.z = -elapsedTime * 0.2;
+      ring3.rotation.x = elapsedTime * 0.15;
 
-      particles.rotation.y = elapsedTime * 0.04;
+      particles.rotation.y = elapsedTime * 0.03;
 
-      // Camera parallax sway + position
+      // Camera parallax sway
       if (!reduced) {
-        camera.position.x += (scrollObj.camX + mouseX * 0.4 - camera.position.x) * 0.08;
-        camera.position.y += (scrollObj.camY + mouseY * 0.25 - camera.position.y) * 0.08;
+        camera.position.x += (scrollObj.camX + mouseX * 0.3 - camera.position.x) * 0.08;
+        camera.position.y += (scrollObj.camY + mouseY * 0.2 - camera.position.y) * 0.08;
         camera.position.z += (scrollObj.camZ - camera.position.z) * 0.08;
         camera.lookAt(0, scrollObj.lookAtY, 0);
       } else {
@@ -378,14 +338,14 @@ export default function CinematicCanvas({ onDragStateChange }: CinematicCanvasPr
   return (
     <div
       ref={containerRef}
-      className="fixed inset-0 pointer-events-none z-0 overflow-hidden"
+      className="fixed inset-0 pointer-events-none z-0 overflow-hidden transition-opacity duration-700"
       aria-hidden="true"
     >
-      {/* Radiant atmospheric cosmic glow behind the 3D planet */}
+      {/* Radiant atmospheric violet glow */}
       <div 
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[720px] h-[720px] rounded-full pointer-events-none opacity-35 blur-[120px]"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none opacity-30 blur-[140px]"
         style={{
-          background: "radial-gradient(circle, rgba(59, 130, 246, 0.35) 0%, rgba(29, 78, 216, 0.15) 45%, transparent 75%)",
+          background: "radial-gradient(circle, rgba(139, 92, 246, 0.4) 0%, rgba(109, 40, 217, 0.18) 45%, transparent 75%)",
         }}
       />
       <canvas ref={canvasRef} className="relative z-10 w-full h-full block" />

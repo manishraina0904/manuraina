@@ -108,7 +108,7 @@ export default function Navbar({ onResumeClick, onAIChatClick }: NavbarProps) {
                 >
                   {link.name}
                   {isActive && (
-                    <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3 h-[2px] bg-accent-blue rounded-full" />
+                    <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3 h-[2px] bg-accent-violet rounded-full" />
                   )}
                 </Link>
               );
@@ -121,10 +121,10 @@ export default function Navbar({ onResumeClick, onAIChatClick }: NavbarProps) {
             <button
               onClick={onAIChatClick}
               data-cursor-type="CHAT"
-              className="hidden xl:flex items-center gap-2 px-3 py-1.5 rounded-full bg-accent-blue/10 border border-accent-blue/30 text-[11px] font-mono text-accent-blue hover:bg-accent-blue/20 transition-all group"
+              className="hidden xl:flex items-center gap-2 px-3 py-1.5 rounded-full bg-accent-violet/10 border border-accent-violet/30 text-[11px] font-mono text-accent-violet hover:bg-accent-violet/20 transition-all group"
               title="Chat with Manish's AI Assistant"
             >
-              <Sparkles className="w-3.5 h-3.5 text-accent-blue" />
+              <Sparkles className="w-3.5 h-3.5 text-accent-violet" />
               <span>AI Assistant</span>
             </button>
 
@@ -164,7 +164,7 @@ export default function Navbar({ onResumeClick, onAIChatClick }: NavbarProps) {
 
         {/* Scroll Progress Line Indicator */}
         <div
-          className="fixed top-0 left-0 h-[2px] bg-gradient-to-r from-accent-cyan via-accent-violet to-accent-cyan transition-all duration-75 z-50"
+          className="fixed top-0 left-0 h-[2px] bg-gradient-to-r from-accent-violet via-accent-purple to-accent-violet transition-all duration-75 z-50"
           style={{ width: `${scrollProgress}%` }}
         />
       </header>
@@ -208,7 +208,7 @@ export default function Navbar({ onResumeClick, onAIChatClick }: NavbarProps) {
           <Link
             href="#contact"
             onClick={() => setMobileMenuOpen(false)}
-            className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-gradient-to-r from-accent-cyan to-accent-violet text-background font-semibold text-sm"
+            className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-gradient-to-r from-accent-violet to-accent-purple text-white font-semibold text-sm"
           >
             <span>Let's Build Something</span>
             <ArrowUpRight className="w-4 h-4" />

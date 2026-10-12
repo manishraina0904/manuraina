@@ -35,7 +35,7 @@ export default function EngineeringApproach() {
                 onClick={() => setActiveStep(idx)}
                 className={`h-full p-8 rounded-3xl border transition-all duration-300 flex flex-col justify-between cursor-pointer ${
                   activeStep === idx
-                    ? "bg-surface-elevated border-accent-violet/60 shadow-[0_12px_40px_rgba(168,85,247,0.25)]"
+                    ? "bg-surface-elevated border-accent-violet/60 shadow-[0_12px_40px_rgba(139,92,246,0.20)]"
                     : "bg-surface-card border-white/8 hover:border-white/20"
                 }`}
               >
@@ -45,13 +45,13 @@ export default function EngineeringApproach() {
                     <span className="font-display font-extrabold text-3xl text-foreground/40 group-hover:text-accent-cyan transition-colors">
                       {step.step}
                     </span>
-                    <span className="w-2 h-2 rounded-full bg-accent-cyan" />
+                    <span className="w-2 h-2 rounded-full bg-accent-violet" />
                   </div>
 
                   <h3 className="font-display font-bold text-xl text-foreground mb-1">
                     {step.title}
                   </h3>
-                  <div className="font-mono text-xs text-accent-cyan mb-4 font-medium">
+                  <div className="font-mono text-xs text-accent-violet mb-4 font-medium">
                     {step.subtitle}
                   </div>
 
@@ -64,7 +64,7 @@ export default function EngineeringApproach() {
                 <div className="space-y-2.5 pt-4 border-t border-white/8">
                   {step.points.map((pt, pIdx) => (
                     <div key={pIdx} className="flex items-start gap-2 text-xs text-foreground/80 leading-snug">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-accent-cyan shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-3.5 h-3.5 text-accent-violet shrink-0 mt-0.5" />
                       <span>{pt}</span>
                     </div>
                   ))}

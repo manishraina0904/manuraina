@@ -10,17 +10,17 @@ export default function SkillsSection() {
   const getCategoryIcon = (iconName: string) => {
     switch (iconName) {
       case "BrainCircuit":
-        return <BrainCircuit className="w-5 h-5 text-accent-cyan" />;
+        return <BrainCircuit className="w-5 h-5 text-accent-violet" />;
       case "Cpu":
-        return <Cpu className="w-5 h-5 text-accent-violet" />;
+        return <Cpu className="w-5 h-5 text-accent-purple" />;
       case "Server":
-        return <Server className="w-5 h-5 text-accent-cyan" />;
+        return <Server className="w-5 h-5 text-accent-violet" />;
       case "Database":
         return <Database className="w-5 h-5 text-accent-emerald" />;
       case "Terminal":
-        return <Terminal className="w-5 h-5 text-accent-violet" />;
+        return <Terminal className="w-5 h-5 text-accent-purple" />;
       default:
-        return <Sparkles className="w-5 h-5 text-accent-cyan" />;
+        return <Sparkles className="w-5 h-5 text-accent-violet" />;
     }
   };
 
@@ -31,7 +31,7 @@ export default function SkillsSection() {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
           <div>
             <div className="flex items-center gap-2 mb-3">
-              <span className="w-2 h-2 rounded-full bg-accent-cyan" />
+              <span className="w-2 h-2 rounded-full bg-accent-violet" />
               <span className="font-mono text-xs uppercase tracking-widest text-muted">
                 04 // Technical Matrix &amp; Core Competencies
               </span>
@@ -50,16 +50,16 @@ export default function SkillsSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {SKILL_CATEGORIES.map((category, idx) => (
             <TextReveal key={category.title} delay={idx * 0.08}>
-              <div className="h-full p-7 rounded-3xl bg-surface-card border border-white/8 hover:border-white/20 transition-all duration-300 backdrop-blur-xl flex flex-col justify-between group hover:-translate-y-1">
+              <div className="h-full p-7 rounded-3xl bg-surface-card border border-white/8 hover:border-accent-violet/40 transition-all duration-300 backdrop-blur-xl flex flex-col justify-between group hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(0,0,0,0.5),0_0_20px_rgba(139,92,246,0.10)]">
                 <div>
                   {/* Category Header */}
                   <div className="flex items-center justify-between mb-6 pb-4 border-b border-white/6">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:scale-105 transition-transform">
+                      <div className="w-10 h-10 rounded-xl bg-accent-violet/10 border border-accent-violet/20 flex items-center justify-center group-hover:scale-105 group-hover:bg-accent-violet/15 transition-all">
                         {getCategoryIcon(category.icon)}
                       </div>
                       <div>
-                        <h3 className="font-display font-bold text-lg text-foreground group-hover:text-accent-cyan transition-colors">
+                        <h3 className="font-display font-bold text-lg text-foreground group-hover:text-accent-violet transition-colors">
                           {category.title}
                         </h3>
                         <span className="font-mono text-[11px] text-muted line-clamp-1">
@@ -74,7 +74,7 @@ export default function SkillsSection() {
                     {category.skills.map((skill, sIdx) => (
                       <div
                         key={sIdx}
-                        className="flex items-center gap-2 p-2.5 rounded-xl bg-surface-elevated/80 border border-white/6 hover:border-accent-cyan/30 hover:bg-surface-elevated transition-all group/item"
+                        className="flex items-center gap-2 p-2.5 rounded-xl bg-surface-elevated/80 border border-white/6 hover:border-accent-violet/30 hover:bg-surface-elevated transition-all group/item"
                       >
                         {skill.icon ? (
                           <div className="relative w-3.5 h-3.5 shrink-0">
@@ -82,11 +82,11 @@ export default function SkillsSection() {
                               src={skill.icon}
                               alt={skill.name}
                               fill
-                              className="object-contain filter group-hover/item:drop-shadow-[0_0_6px_rgba(168,85,247,0.75)] transition-all"
+                              className="object-contain filter group-hover/item:drop-shadow-[0_0_6px_rgba(139,92,246,0.80)] transition-all"
                             />
                           </div>
                         ) : (
-                          <span className="w-1.5 h-1.5 rounded-full bg-accent-cyan shrink-0" />
+                          <span className="w-1.5 h-1.5 rounded-full bg-accent-violet shrink-0" />
                         )}
                         <span className="font-mono text-[11px] text-foreground/90 font-medium truncate" title={skill.name}>
                           {skill.name}
@@ -99,7 +99,7 @@ export default function SkillsSection() {
                 {/* Status Bar Indicator */}
                 <div className="mt-6 pt-4 border-t border-white/6 flex items-center justify-between text-[11px] font-mono text-muted">
                   <span className="flex items-center gap-1.5">
-                    <Check className="w-3.5 h-3.5 text-accent-cyan" />
+                    <Check className="w-3.5 h-3.5 text-accent-violet" />
                     <span>Production Grade</span>
                   </span>
                   <span>{category.skills.length} Competencies</span>

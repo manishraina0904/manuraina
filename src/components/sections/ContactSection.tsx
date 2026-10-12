@@ -112,7 +112,7 @@ export default function ContactSection() {
             <TextReveal>
               <div>
                 <div className="flex items-center gap-2 mb-4">
-                  <span className="w-1.5 h-1.5 rounded-full bg-accent-blue" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-accent-violet" />
                   <span className="font-mono text-xs uppercase tracking-widest text-muted">
                     07 // Initiate Dialogue
                   </span>
@@ -142,7 +142,7 @@ export default function ContactSection() {
 
                 <h2 className="font-display font-black text-4xl sm:text-6xl text-foreground tracking-tight leading-[1.05] mb-6">
                   Let's Build <br />
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-foreground via-[#EDE9FE] to-muted">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-foreground via-accent-violet-light to-accent-purple">
                     Something Great.
                   </span>
                 </h2>
@@ -155,9 +155,9 @@ export default function ContactSection() {
             {/* DIRECT CONTACT CHANNELS */}
             <div className="space-y-4 pt-4 border-t border-white/8">
               {/* Email Card with Copy Trigger */}
-              <div className="p-4 sm:p-5 rounded-2xl bg-surface-card border border-white/8 hover:border-white/20 transition-all flex items-center justify-between gap-4">
+              <div className="p-4 sm:p-5 rounded-2xl bg-surface-card border border-white/8 hover:border-accent-violet/30 transition-all flex items-center justify-between gap-4">
                 <div className="flex items-center gap-3.5">
-                  <div className="w-10 h-10 rounded-xl bg-accent-cyan/10 border border-accent-cyan/20 flex items-center justify-center text-accent-cyan shrink-0">
+                  <div className="w-10 h-10 rounded-xl bg-accent-violet/10 border border-accent-violet/20 flex items-center justify-center text-accent-violet shrink-0">
                     <Mail className="w-5 h-5" />
                   </div>
                   <div>
@@ -166,7 +166,7 @@ export default function ContactSection() {
                     </small>
                     <a
                       href={`mailto:${PERSONAL_INFO.email}`}
-                      className="font-mono text-xs sm:text-sm font-semibold text-foreground hover:text-accent-cyan transition-colors"
+                      className="font-mono text-xs sm:text-sm font-semibold text-foreground hover:text-accent-violet transition-colors"
                     >
                       {PERSONAL_INFO.email}
                     </a>
@@ -175,7 +175,7 @@ export default function ContactSection() {
 
                 <button
                   onClick={copyEmail}
-                  className="p-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-muted hover:text-foreground transition-all shrink-0"
+                  className="p-2.5 rounded-xl bg-white/5 hover:bg-accent-violet/15 border border-white/10 hover:border-accent-violet/40 text-muted hover:text-accent-violet transition-all shrink-0"
                   title="Copy email address"
                   aria-label="Copy email address"
                 >
@@ -218,13 +218,13 @@ export default function ContactSection() {
                   target="_blank"
                   rel="noreferrer"
                   data-cursor-type="OPEN"
-                  className="p-4 rounded-2xl bg-surface-card border border-white/8 hover:border-white/20 transition-all flex items-center justify-between group"
+                  className="p-4 rounded-2xl bg-surface-card border border-white/8 hover:border-accent-violet/35 transition-all flex items-center justify-between group"
                 >
                   <div className="flex items-center gap-2.5">
-                    <Linkedin className="w-4 h-4 text-accent-cyan" />
+                    <Linkedin className="w-4 h-4 text-accent-violet" />
                     <span className="font-mono text-xs font-semibold text-foreground">LinkedIn</span>
                   </div>
-                  <ArrowUpRight className="w-3.5 h-3.5 text-muted group-hover:text-foreground transition-colors" />
+                  <ArrowUpRight className="w-3.5 h-3.5 text-muted group-hover:text-accent-violet transition-colors" />
                 </a>
 
                 <a
@@ -232,13 +232,13 @@ export default function ContactSection() {
                   target="_blank"
                   rel="noreferrer"
                   data-cursor-type="OPEN"
-                  className="p-4 rounded-2xl bg-surface-card border border-white/8 hover:border-white/20 transition-all flex items-center justify-between group"
+                  className="p-4 rounded-2xl bg-surface-card border border-white/8 hover:border-accent-violet/35 transition-all flex items-center justify-between group"
                 >
                   <div className="flex items-center gap-2.5">
-                    <Github className="w-4 h-4 text-accent-violet" />
+                    <Github className="w-4 h-4 text-accent-purple" />
                     <span className="font-mono text-xs font-semibold text-foreground">GitHub</span>
                   </div>
-                  <ArrowUpRight className="w-3.5 h-3.5 text-muted group-hover:text-foreground transition-colors" />
+                  <ArrowUpRight className="w-3.5 h-3.5 text-muted group-hover:text-accent-purple transition-colors" />
                 </a>
               </div>
             </div>
@@ -251,12 +251,12 @@ export default function ContactSection() {
                 {submittedData ? (
                   /* POST-SUBMISSION SUCCESS SCREEN */
                   <div className="space-y-6 py-2 animate-in fade-in duration-300">
-                    <div className="w-12 h-12 rounded-2xl bg-accent-blue/15 border border-accent-blue/30 flex items-center justify-center text-accent-blue">
-                      <CheckCircle2 className="w-7 h-7 text-accent-blue" />
+                    <div className="w-12 h-12 rounded-2xl bg-accent-violet/15 border border-accent-violet/30 flex items-center justify-center text-accent-violet">
+                      <CheckCircle2 className="w-7 h-7 text-accent-violet" />
                     </div>
 
                     <div>
-                      <span className="font-mono text-xs text-accent-blue uppercase tracking-wider block mb-1">
+                      <span className="font-mono text-xs text-accent-violet uppercase tracking-wider block mb-1">
                         Dispatch Recorded // Ready To Send
                       </span>
                       <h3 className="font-display font-bold text-2xl text-foreground">
@@ -352,7 +352,7 @@ export default function ContactSection() {
                           value={formState.name}
                           onChange={(e) => setFormState({ ...formState, name: e.target.value })}
                           placeholder="e.g. Alex Morgan"
-                          className="w-full px-4 py-3 rounded-xl bg-surface-elevated border border-white/8 focus:border-accent-blue focus:outline-none text-foreground font-sans text-sm transition-all"
+                          className="w-full px-4 py-3 rounded-xl bg-surface-elevated border border-white/8 focus:border-accent-violet focus:outline-none text-foreground font-sans text-sm transition-all"
                         />
                       </div>
 
@@ -366,7 +366,7 @@ export default function ContactSection() {
                           value={formState.email}
                           onChange={(e) => setFormState({ ...formState, email: e.target.value })}
                           placeholder="alex@company.com"
-                          className="w-full px-4 py-3 rounded-xl bg-surface-elevated border border-white/8 focus:border-accent-blue focus:outline-none text-foreground font-sans text-sm transition-all"
+                          className="w-full px-4 py-3 rounded-xl bg-surface-elevated border border-white/8 focus:border-accent-violet focus:outline-none text-foreground font-sans text-sm transition-all"
                         />
                       </div>
 
@@ -380,7 +380,7 @@ export default function ContactSection() {
                           value={formState.message}
                           onChange={(e) => setFormState({ ...formState, message: e.target.value })}
                           placeholder="Tell me about your team, problem space, timeline, or idea..."
-                          className="w-full px-4 py-3 rounded-xl bg-surface-elevated border border-white/8 focus:border-accent-blue focus:outline-none text-foreground font-sans text-sm transition-all resize-none"
+                          className="w-full px-4 py-3 rounded-xl bg-surface-elevated border border-white/8 focus:border-accent-violet focus:outline-none text-foreground font-sans text-sm transition-all resize-none"
                         />
                       </div>
 
@@ -388,7 +388,7 @@ export default function ContactSection() {
                         <button
                           type="submit"
                           disabled={isSubmitting}
-                          className="w-full py-3.5 rounded-xl bg-foreground hover:bg-white text-background font-bold text-sm tracking-wide transition-all shadow-[0_2px_12px_rgba(0,0,0,0.5)] hover:shadow-[0_4px_16px_rgba(59,130,246,0.20)] flex items-center justify-center gap-2 disabled:opacity-60"
+                          className="w-full py-3.5 rounded-xl bg-accent-violet hover:bg-accent-violet-light text-white font-bold text-sm tracking-wide transition-all shadow-[0_2px_12px_rgba(0,0,0,0.5)] hover:shadow-[0_4px_16px_rgba(139,92,246,0.30)] flex items-center justify-center gap-2 disabled:opacity-60"
                         >
                           {isSubmitting ? (
                             <>

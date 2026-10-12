@@ -6,8 +6,8 @@ import { Sparkles, Code2, Database, BrainCircuit, MousePointerClick, Cpu } from 
 
 export default function DesignEngineering() {
   const nodes = [
-    { title: "Design & UX", icon: Sparkles, color: "text-accent-cyan", desc: "Intuitive workflows, typography, and zero-clutter visual hierarchy." },
-    { title: "Frontend & 3D", icon: Code2, color: "text-accent-violet", desc: "Next.js, Three.js WebGL shaders, 60fps GSAP motion, and fluid responsiveness." },
+    { title: "Design & UX", icon: Sparkles, color: "text-accent-violet", desc: "Intuitive workflows, typography, and zero-clutter visual hierarchy." },
+    { title: "Frontend & 3D", icon: Code2, color: "text-accent-purple", desc: "Next.js, Three.js WebGL shaders, 60fps GSAP motion, and fluid responsiveness." },
     { title: "Backend & Security", icon: Database, color: "text-accent-emerald", desc: "FastAPI async services, JWT/RBAC security guards, and PostgreSQL relations." },
     { title: "AI & Neural Logic", icon: BrainCircuit, color: "text-accent-cyan", desc: "Multi-agent DAGs, LightGBM survival calibration, and NLP sentiment pipelines." },
   ];
@@ -21,7 +21,7 @@ export default function DesignEngineering() {
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-gradient-to-r from-accent-cyan/10 via-accent-violet/10 to-transparent blur-3xl pointer-events-none -z-10" />
 
             <div className="max-w-3xl mb-12">
-              <span className="font-mono text-xs uppercase tracking-widest text-accent-cyan mb-2 inline-block">
+              <span className="font-mono text-xs uppercase tracking-widest text-accent-violet mb-2 inline-block">
                 06 // Design + Engineering Synthesis
               </span>
               <h2 className="font-display font-black text-3xl sm:text-5xl text-foreground tracking-tight mb-4">
@@ -41,10 +41,10 @@ export default function DesignEngineering() {
                     key={i}
                     className="p-6 rounded-2xl bg-surface-elevated/70 border border-white/6 hover:border-white/20 transition-all group"
                   >
-                    <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                    <div className="w-10 h-10 rounded-xl bg-accent-violet/10 border border-accent-violet/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                       <IconComponent className={`w-5 h-5 ${node.color}`} />
                     </div>
-                    <h3 className="font-display font-bold text-lg text-foreground mb-2 group-hover:text-accent-cyan transition-colors">
+                    <h3 className="font-display font-bold text-lg text-foreground mb-2 group-hover:text-accent-violet transition-colors">
                       {node.title}
                     </h3>
                     <p className="text-xs text-muted leading-relaxed">
